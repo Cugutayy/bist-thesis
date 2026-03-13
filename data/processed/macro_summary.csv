@@ -1,0 +1,11 @@
+metric,value,description
+Cumulative CPI Inflation,489.8%,Total TUFE increase 2020-01 to 2025-06
+Average YoY Inflation,43.0%,Mean of monthly YoY TUFE readings
+Peak YoY Inflation,85.5%,Maximum YoY TUFE (2022-10)
+Average MoM Inflation,2.76%,Mean monthly CPI change
+BIST-100 Nominal Return,711.2%,XU100.IS total return (2020-01 to 2025-06)
+BIST-100 Real Return (CPI-adjusted),37.5%,Nominal return deflated by TUFE
+BIST-100 USD Return,21.1%,Return in USD terms
+USD/TRY Start,5.95,Exchange rate at 2020-01-01
+USD/TRY End,39.85,Exchange rate at 2025-06-30
+TRY Depreciation vs USD,570.1%,Cumulative TRY depreciation against USD

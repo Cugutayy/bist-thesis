@@ -1,0 +1,210 @@
+﻿ticker,company_name,ipo_date,offer_price,tavan_days,underpricing,tavan_series_return,trailing_pe,forward_pe,price_to_book,market_cap,sector_yf,industry_yf,current_price,tavan_group
+ARDYZ.IS,Ard Grup Bilisim Teknolojileri A.S.,2020-02-06,5.5,0.0,0.0,0.0,25.757576,,6.55763,13544666112.0,Technology,Software - Infrastructure,42.5,0 days
+BAYRK.IS,Bayrak Ebt Taban San. ve Tic. A.S.,2020-06-04,3.28,11.0,1.829446100621772,1.829446100621772,,,3.4910784,1124999936.0,Consumer Cyclical,Footwear & Accessories,4.5,11+ days
+FADE.IS,Fade Gida Yatirim San. ve Tic. A.S.,2020-08-06,2.4,10.0,1.5708333436324464,1.5708333436324464,38.270267,,0.69002485,1187953152.0,Consumer Defensive,Packaged Foods,14.16,6-10 days
+DNISI.IS,Dinamik Isi Yalitim Malzemeleri San. ve Tic. A.S.,2020-09-04,3.52,7.0,0.94117622633257,0.94117622633257,99.799995,,1.9216326,2389773312.0,Basic Materials,Specialty Chemicals,19.96,6-10 days
+ESEN.IS,Esenboga Elektrik Uretim A.S.,2020-10-09,8.5,9.0,1.3517660667580973,1.3517660667580973,,,0.62880975,7134400000.0,Utilities,Utilities - Renewable,3.92,6-10 days
+KONTR.IS,Kontrolmatik Teknoloji Enerji ve Muhendislik A.S.,2020-10-19,6.9,9.0,1.34637656134151,1.34637656134151,,,1.0025592,11713000448.0,Industrials,Conglomerates,9.01,6-10 days
+KRVGD.IS,Kervan Gida San. ve Tic. A.S.,2020-12-04,9.0,6.0,0.7677768421383089,0.7677768421383089,,,1.0016978,6371891200.0,Consumer Defensive,Confectioners,2.95,6-10 days
+ARZUM.IS,Arzum Elektrikli Ev Aletleri San. ve Tic. A.S.,2020-12-24,17.0,5.0,0.608235371731578,0.608235371731578,,,10.65637,1656000000.0,Technology,Consumer Electronics,2.76,3-5 days
+ISKPL.IS,Isik Plastik Sanayi ve Dis Ticaret A.S.,2021-01-28,16.1,7.0,0.945342787216517,0.945342787216517,33.402985,,6.761329,16784999424.0,Industrials,Specialty Business Services,11.19,6-10 days
+TRILC.IS,Turk Ilac ve Serum Sanayi A.S.,2021-03-01,10.0,21.0,6.300000791983236,6.300000791983236,,,1.5619389,2533866240.0,Healthcare,Drug Manufacturers - Specialty & Generic,15.66,11+ days
+NTGAZ.IS,Naturelgaz Sanayi ve Ticaret A.S.,2021-04-01,8.5,7.0,0.9447063101304244,0.9447063101304244,9.043165,,1.7202681,8673299456.0,Energy,Oil & Gas Midstream,12.57,6-10 days
+MTRKS.IS,Matriks Finansal Teknolojiler A.S.,2021-04-06,28.0,7.0,0.946428440877466,0.946428440877466,13.0,,2.5591164,2083043072.0,Financial Services,Financial Data & Stock Exchanges,21.32,6-10 days
+TUREX.IS,Tureks Turizm Tasimacilik A.S.,2021-04-08,12.0,5.0,0.6091665979557601,0.6091665979557601,2.6931033,,1.220694,8434800128.0,Industrials,Railroads,7.81,3-5 days
+QUAGR.IS,Qua Granite Hayal Yapi ve Urunleri A.S.,2021-04-09,16.46,6.0,0.7697238780737821,0.7697238780737821,,,0.8445667,8104799744.0,Industrials,Building Products & Equipment,3.07,6-10 days
+GWIND.IS,Galata Wind Enerji A.S.,2021-04-22,5.06,0.0,0.0,0.0,16.178343,,0.97076243,13715999744.0,Utilities,Utilities - Renewable,25.4,0 days
+BIOEN.IS,Biotrend Cevre ve Enerji Yatirimlari A.S.,2021-04-28,18.0,0.0,0.0,0.0,,,1.8645041,8104999424.0,Utilities,Utilities - Renewable,16.21,0 days
+AYDEM.IS,Aydem Yenilenebilir Enerji A.S.,2021-04-29,9.9,0.0,0.0,0.0,,3.4513032,0.47790906,17737799680.0,Utilities,Utilities - Renewable,25.16,0 days
+CANTE.IS,Can2 Termik A.S.,2021-04-30,3.9,3.0,0.3282060446467216,0.3282060446467216,,,0.42429066,15958681600.0,Utilities,Utilities - Independent Power Producers,1.6,3-5 days
+ZRGYO.IS,Ziraat Gayrimenkul Yatirim Ortakligi A.S.,2021-05-06,1.6,0.0,0.0,0.0,13.910828,,1.2921548,102508666880.0,Real Estate,REIT - Diversified,21.84,0 days
+PENTA.IS,Penta Teknoloji Urunleri Dagitim A.S.,2021-05-17,32.0,0.0,0.0,0.0,26.37255,,1.2466401,5292790272.0,Technology,Electronics & Computer Distribution,13.45,0 days
+KLKIM.IS,Kalekim Kimyevi Maddeler A.S.,2021-05-18,14.75,0.0,0.0,0.0,2008.0,,3.0833013,18473598976.0,Basic Materials,Specialty Chemicals,40.16,0 days
+MERCN.IS,Mercan Kimya A.S.,2021-05-27,8.81,0.0,0.0,0.0,14.24,,1.5079633,3388602624.0,Basic Materials,Specialty Chemicals,17.8,0 days
+BOBET.IS,Bogazici Beton A.S.,2021-06-03,3.5,2.0,0.2085714297990244,0.2085714297990244,,,1.1029994,7406199808.0,Basic Materials,Building Materials,19.49,1-2 days
+ATATP.IS,ATP Yazilim ve Teknoloji A.S.,2021-06-04,24.0,0.0,0.0,0.0,8.718985,,3.6321242,3821825536.0,Technology,Software - Infrastructure,151.1,0 days
+UNLU.IS,Unlu Yatirim Holding A.S.,2021-06-07,6.9,0.0,0.0,0.0,,,0.9004555,2432241664.0,Financial Services,Capital Markets,13.84,0 days
+BMSCH.IS,BMS Celik Hasir A.S.,2021-06-08,4.87,0.0,0.0,0.0,,,1.29574,1898000000.0,Basic Materials,Steel,18.98,0 days
+OYYAT.IS,Oyak Yatirim Menkul Degerler A.S.,2021-06-10,18.65,3.0,0.3296585997778036,0.3296585997778036,23.431734,,1.5684047,19050000384.0,Financial Services,Capital Markets,63.5,3-5 days
+BASGZ.IS,Baskent Dogalgaz Dagitim GYO A.S.,2021-06-11,9.72,0.0,0.0,0.0,15.980456,,1.2670455,34342000640.0,Utilities,Utilities - Regulated Gas,49.06,0 days
+SELVA.IS,Selva Gida Sanayi A.S.,2021-06-25,3.06,7.0,0.9346871114794864,0.9346871114794864,4.9565215,,0.47949526,2551091712.0,Consumer Defensive,Packaged Foods,2.28,6-10 days
+MEDTR.IS,Meditera Tibbi Malzeme A.S.,2021-07-02,28.0,0.0,0.0,0.0,,,1.2593911,3451000064.0,Healthcare,Medical Devices,29.0,0 days
+EDATA.IS,E-Data Teknoloji Pazarlama A.S.,2021-07-05,6.0,2.0,0.210001003239989,0.210001003239989,,,6.5879626,5722878464.0,Technology,Information Technology Services,14.23,1-2 days
+KTSKR.IS,Kutahya Seker Fabrikasi A.S.,2021-07-08,21.0,0.0,0.0,0.0,,,0.5826395,3431599872.0,Consumer Defensive,Confectioners,74.6,0 days
+VBTYZ.IS,VBT Yazilim A.S.,2021-07-12,12.48,0.0,0.0,0.0,14.948052,,2.9573486,2693340160.0,Technology,Information Technology Services,23.02,0 days
+ESCAR.IS,Escar Turizm Tasimacilik A.S.,2021-07-13,15.0,0.0,0.0,0.0,,,2.262738,13899999232.0,Industrials,Rental & Leasing Services,27.8,0 days
+A1YEN.IS,A1 Yenilenebilir Enerji A.S.,2021-07-16,8.0,,,,27.759258,,0.54416084,1648899968.0,Utilities,Utilities - Renewable,29.98,
+MANAS.IS,Manas Enerji Yonetimi A.S.,2021-07-27,9.9,5.0,0.6070707903578805,0.6070707903578805,,,3.903152,6190747648.0,Industrials,Electrical Equipment & Parts,18.7,3-5 days
+GENIL.IS,Gen Ilac ve Saglik Urunleri A.S.,2021-08-06,10.75,3.0,0.3309999975800497,0.3309999975800497,61.53333,,7.1,41534996480.0,Healthcare,Drug Manufacturers - Specialty & Generic,9.23,3-5 days
+KZBGY.IS,Kizilbuk Gayrimenkul Yatirim Ortakligi A.S.,2021-08-12,15.8,0.0,0.0,0.0,57.333336,,0.6791708,13760000000.0,Real Estate,REIT - Hotel & Motel,3.44,0 days
+GESAN.IS,Girisim Elektrik A.S.,2021-08-19,17.0,5.0,0.6082352374791749,0.6082352374791749,23.340101,,1.5507588,21150799872.0,Industrials,Engineering & Construction,45.98,3-5 days
+BRLSM.IS,Birlesim Muhendislik A.S.,2021-08-20,9.1,3.0,0.3307694280642086,0.3307694280642086,13.57377,,2.1082113,3709440000.0,Industrials,Engineering & Construction,16.56,3-5 days
+EGEPO.IS,Nasmed Ozel Saglik Hizmetleri A.S.,2021-09-02,5.0,3.0,0.3290908567857078,0.3290908567857078,,,3.6802096,7019999744.0,Healthcare,Medical Care Facilities,14.04,3-5 days
+ORCAY.IS,Orcay Ortakoy Cay A.S.,2021-09-02,9.9,,,,,,1.1623989,828000000.0,Consumer Defensive,Packaged Foods,3.45,
+YEOTK.IS,Yeo Teknoloji Enerji A.S.,2021-09-03,20.0,10.0,1.5899997954075449,1.5899997954075449,8.618644,,5.4211087,18051749888.0,Industrials,Engineering & Construction,50.85,6-10 days
+TEZOL.IS,Europap Tezol Kagit A.S.,2021-09-15,13.87,3.0,0.3300982764869709,0.3300982764869709,,,1.4108593,8249999872.0,Basic Materials,Paper & Paper Products,16.5,3-5 days
+KIMMR.IS,Ersan Alisveris (Kimmer) A.S.,2021-09-22,3.5,2.0,0.2085714639582316,0.2085714639582316,17.5,,1.1395749,4451999744.0,Consumer Cyclical,Department Stores,18.55,1-2 days
+MAGEN.IS,Margun Enerji A.S.,2021-09-30,8.3,0.0,0.0,0.0,,,9.973912,146615009280.0,Utilities,Utilities - Renewable,49.7,0 days
+GLCVY.IS,Gelecek Varlik Yonetimi A.S.,2021-10-21,13.65,0.0,0.0,0.0,13.737167,,2.429635,9345930240.0,Financial Services,Asset Management,66.9,0 days
+ANGEN.IS,Anatolia Tani ve Biyoteknoloji A.S.,2021-10-21,22.5,0.0,0.0,0.0,,,1.3064945,2270400000.0,Healthcare,Medical Devices,10.32,0 days
+HEDEF.IS,Hedef Holding A.S.,2021-10-22,1.96,7.0,0.9288370155298036,0.9288370155298036,,,50.98901,226136883200.0,Financial Services,Asset Management,116.0,6-10 days
+IHAAS.IS,Ihlas Haber Ajansi A.S.,2021-11-03,4.6,0.0,0.0,0.0,,,40.725613,13814250496.0,Communication Services,Broadcasting,84.75,0 days
+ULUFA.IS,Ulusal Faktoring A.S.,2021-11-11,2.49,0.0,0.0,0.0,,,1.0400001,,,,3.9,0 days
+ARASE.IS,Dogu Aras Enerji A.S.,2021-11-11,110.0,0.0,0.0,0.0,24.743937,,1.2366967,22950000640.0,Utilities,Utilities - Independent Power Producers,91.8,0 days
+GMTAS.IS,Gimat Magazacilik A.S.,2021-11-12,2.0,2.0,0.2100000000000002,0.2100000000000002,,,2.4886725,8897999872.0,,,29.66,1-2 days
+ELITE.IS,Elite Naturel Organik Gida A.S.,2021-11-15,16.3,2.0,0.2098159209914418,0.2098159209914418,39.07895,,1.8290429,3849120000.0,Consumer Defensive,Beverages - Non-Alcoholic,29.7,1-2 days
+ISSEN.IS,Isbir Sentetik Dokuma A.S.,2021-11-18,11.85,0.0,0.0,0.0,,,0.608041,3119325184.0,Consumer Cyclical,Textile Manufacturing,7.35,0 days
+MIATK.IS,Mia Teknoloji A.S.,2021-11-22,15.8,9.0,1.3531646004167843,1.3531646004167843,,,3.577723,20056399872.0,Technology,Information Technology Services,40.6,6-10 days
+MOBTL.IS,Mobiltel Iletisim A.S.,2021-11-25,1.6,0.0,0.0,0.0,38.46154,,1.3506213,10250000384.0,Technology,Electronics & Computer Distribution,10.0,0 days
+KONKA.IS,Konya Kagit A.S.,2021-11-26,6.95,2.0,0.209424383474515,0.209424383474515,,,0.80820096,6626099712.0,Basic Materials,Paper & Paper Products,16.99,1-2 days
+PCILT.IS,Pc Iletisim ve Medya Hizmetleri A.S.,2021-12-01,9.5,6.0,0.7673682588083952,0.7673682588083952,12.6851845,,1.9668366,3242789888.0,Communication Services,Advertising Agencies,27.4,6-10 days
+RNPOL.IS,Rainbow Polikarbonat A.S.,2021-12-06,9.9,5.0,0.6070706872782345,0.6070706872782345,,,1.1549623,1157384064.0,Basic Materials,Specialty Chemicals,1.99,3-5 days
+PSGYO.IS,Pasifik Gayrimenkul Yatirim Ortakligi A.S.,2021-12-16,16.38,0.0,0.0,0.0,3.7543862,,0.3507047,14767813632.0,Real Estate,REIT - Diversified,2.14,0 days
+ERCB.IS,Erciyas Celik Boru San. A.S.,2022-01-12,59.664,0.0,0.0,0.0,,,2.3652973,4168497664.0,Basic Materials,Steel,53.6,0 days
+PNLSN.IS,Panelsan Cati Cephe Sistemleri San. ve Tic. A.S.,2022-02-18,10.2,0.0,0.0,0.0,14.868804,,1.4002526,3824999936.0,Industrials,Building Products & Equipment,51.0,0 days
+HUNER.IS,Hun Yenilenebilir Enerji Uretim A.S.,2022-02-21,1.82,4.0,0.4630000410642358,0.4630000410642358,,,0.63255996,3190000128.0,Utilities,Utilities - Renewable,3.19,3-5 days
+DAPGM.IS,Dap Gayrimenkul Gelistirme A.S.,2022-02-24,18.5,0.0,0.0,0.0,,,2.2928326,33654996992.0,Real Estate,Real Estate - Development,12.7,0 days
+INVES.IS,Investco Holding A.S.,2022-03-01,24.0,,,,,,3.1294498,72937496576.0,Financial Services,Asset Management,389.0,
+HTTBT.IS,Hitit Bilgisayar Hizmetleri A.S.,2022-03-03,12.25,0.0,0.0,0.0,30.203125,,3.9078138,11598000128.0,Technology,Software - Application,38.66,0 days
+KLSYN.IS,Koleksiyon Mobilya Sanayi A.S.,2022-03-04,1.45,2.0,0.2037735785010128,0.2037735785010128,11.728395,,1.1954197,4098488064.0,Consumer Cyclical,"Furnishings, Fixtures & Appliances",9.5,1-2 days
+GZNMI.IS,Gezinomi Seyahat Turizm Tic. A.S.,2022-03-08,14.0,5.0,0.6085715750905019,0.6085715750905019,,,2.9407697,4147000064.0,Consumer Cyclical,Travel Services,63.8,3-5 days
+GRSEL.IS,Gur-Sel Turizm Tasimacilik ve Servis Tic. A.S.,2022-03-09,8.25,3.0,0.3292170806006154,0.3292170806006154,16.662455,,3.7412071,33634500608.0,Industrials,Railroads,329.75,3-5 days
+ENSRI.IS,Ensari Deri Gida San. ve Tic. A.S.,2022-03-22,14.0,4.0,0.4628571127504832,0.4628571127504832,62.925922,,13.36217,18521311232.0,Consumer Cyclical,Textile Manufacturing,33.98,3-5 days
+SMRTG.IS,Smart Gunes Enerjisi Teknolojileri A.S.,2022-03-24,14.0,0.0,0.0,0.0,,,3.5890017,13523240960.0,Technology,Solar,7.44,0 days
+LIDER.IS,Ldr Turizm A.S.,2022-04-04,18.65,0.0,0.0,0.0,37.543858,,7.87054,69763997696.0,Industrials,Rental & Leasing Services,85.6,0 days
+CONSE.IS,Consus Enerji Isletmeciligi ve Hizmetleri A.S.,2022-04-20,4.5,0.0,0.0,0.0,8.864864,,1.09699,2528879872.0,Utilities,Utilities - Renewable,3.28,0 days
+SUWEN.IS,Suwen Tekstil Sanayi Pazarlama A.S.,2022-04-21,18.5,0.0,0.0,0.0,37.666668,,3.1920903,5056784896.0,Consumer Cyclical,Apparel Manufacturing,9.04,0 days
+BMSTL.IS,Bms Birlesik Metal San. ve Tic. A.S.,2022-04-27,17.5,0.0,0.0,0.0,,,9.695321,12839999488.0,Basic Materials,Steel,85.6,0 days
+KMPUR.IS,Kimteks Poliuretan San. ve Tic. A.S.,2022-04-28,29.0,0.0,0.0,0.0,,,2.640633,7463170048.0,Basic Materials,Specialty Chemicals,15.35,0 days
+IMASM.IS,Imas Makine Sanayi A.S.,2022-04-29,15.0,12.0,2.126666620307499,2.126666620307499,,,1.1107794,3440999936.0,Industrials,Specialty Industrial Machinery,3.72,11+ days
+SUNTK.IS,Sun Tekstil San. ve Tic. A.S.,2022-05-20,26.0,0.0,0.0,0.0,21.83908,,2.5265958,18034800640.0,Consumer Cyclical,Apparel Manufacturing,38.0,0 days
+YYLGD.IS,Yayla Agro Gida San. ve Tic. A.S.,2022-05-20,12.5,0.0,0.0,0.0,13.29762,,0.8994283,12141565952.0,Consumer Defensive,Packaged Foods,11.17,0 days
+SEGYO.IS,Seker Gayrimenkul Yatirim Ortakligi A.S.,2022-06-07,1.1,0.0,0.0,0.0,,,0.7741291,4839441920.0,Real Estate,REIT - Diversified,6.2,0 days
+EUREN.IS,Europen Endustri Insaat San. ve Tic. A.S.,2022-06-08,16.25,4.0,0.4625630710882138,0.4625630710882138,93.99999,,0.96449816,9869999104.0,Industrials,Building Products & Equipment,4.7,3-5 days
+PRDGS.IS,Pardus Girisim Sermayesi Yatirim Ortakligi A.S.,2022-06-15,2.29,2.0,0.2095617534043277,0.2095617534043277,,,0.6011211,1366119936.0,Financial Services,Asset Management,6.97,1-2 days
+MAKIM.IS,Makim Makina Teknolojileri San. Tic. A.S.,2022-06-17,8.8,6.0,0.7681818828563756,0.7681818828563756,97.64706,,1.7988731,1859200000.0,Industrials,Specialty Industrial Machinery,16.6,6-10 days
+KCAER.IS,Kocaer Celik San. ve Tic. A.S.,2022-06-30,27.5,0.0,0.0,0.0,45.42308,,1.833851,22616152064.0,Basic Materials,Steel,11.81,0 days
+RUBNS.IS,Rubenis Tekstil San. Tic. A.S.,2022-07-06,12.5,0.0,0.0,0.0,,,0.6813237,2694515968.0,Consumer Cyclical,Textile Manufacturing,32.88,0 days
+KLRHO.IS,Kiler Holding A.S.,2022-07-07,7.1,7.0,0.9436619200204892,0.9436619200204892,186.03775,,10.803703,320449970176.0,Industrials,Conglomerates,197.2,6-10 days
+KRPLS.IS,Koroplast Temizlik Ambalaj Urunleri San. ve Dis Tic. A.S.,2022-07-28,4.68,6.0,0.7677043601248448,0.7677043601248448,,,1.7190691,1470131968.0,Consumer Defensive,Household & Personal Products,8.42,6-10 days
+OBASE.IS,Obase Bilgisayar ve Danismanlik Hizm. Tic. A.S.,2022-08-03,10.5,6.0,0.7685713703011625,0.7685713703011625,99.02857,,2.219945,1577030016.0,Technology,Software - Application,34.66,6-10 days
+BARMA.IS,Barem Ambalaj San. ve Tic. A.S.,2022-08-10,36.0,,,,55.294117,,2.972238,12337500160.0,Consumer Cyclical,Packaging & Containers,47.0,
+AZTEK.IS,Aztek Teknoloji Urunleri A.S.,2022-08-17,10.9,3.0,0.3293577981651376,0.3293577981651376,429.0,,1.9990681,4289999872.0,Technology,Electronics & Computer Distribution,4.29,3-5 days
+HKTM.IS,Hidropar Hareket Kontrol Teknolojileri Merkezi San. ve Tic. A.S.,2022-08-18,11.0,7.0,0.9472730077585014,0.9472730077585014,,,1.2083769,1211699968.0,Industrials,Specialty Industrial Machinery,11.54,6-10 days
+ALFAS.IS,Alfa Solar Enerji San. ve Tic. A.S.,2022-11-16,58.5,14.0,2.7846154822091203,2.7846154822091203,,,2.6451435,14050240512.0,Technology,Solar,38.18,11+ days
+SNICA.IS,Sanica Isi Sanayi A.S.,2022-11-24,20.03,7.0,0.9464608519971148,0.9464608519971148,,,0.48366675,2292000000.0,Consumer Cyclical,"Furnishings, Fixtures & Appliances",3.82,6-10 days
+OZSUB.IS,Ozsu Balik Uretim A.S.,2022-11-29,7.69,13.0,2.439289797536162,2.439289797536162,12.670329,,3.073847,2767200000.0,Consumer Defensive,Farm Products,23.06,11+ days
+PLTUR.IS,Platform Turizm Tasimacilik Gida Insaat Temizlik Hizmetleri San. ve Tic. A.S.,2022-12-14,9.1,9.0,1.3538461492704763,1.3538461492704763,18.577778,,0.773358,6138330112.0,Industrials,Rental & Leasing Services,25.08,6-10 days
+BRKVY.IS,Birikim Varlik Yonetim A.S.,2022-12-15,14.2,9.0,1.350704307763412,1.350704307763412,16.30662,,4.2810097,5241600000.0,Financial Services,Asset Management,93.6,6-10 days
+AHGAZ.IS,Ahlatci Dogal Gaz Dagitim Enerji ve Yatirim A.S.,2022-12-22,66.0,2.0,0.2096240796465431,0.2096240796465431,26.965515,,1.3557558,60209139712.0,Utilities,Utilities - Regulated Gas,23.46,1-2 days
+TERA.IS,Tera Yatirim Menkul Degerler A.S.,2022-12-22,10.0,8.0,1.1404958461548746,1.1404958461548746,5.6369305,,6.868322,208775004160.0,Financial Services,Capital Markets,298.25,6-10 days
+EYGYO.IS,Eyg Gayrimenkul Yatirim Ortakligi A.S.,2022-12-29,14.23,5.0,0.6095856398183059,0.6095856398183059,,,1.1290855,2394000128.0,Real Estate,REIT - Diversified,3.42,3-5 days
+ONCSM.IS,Oncosem Onkolojik Sistemler San. ve Tic. A.S.,2023-01-04,17.5,19.0,5.080000015892656,5.080000015892656,107.713005,,14.075593,5728770048.0,Healthcare,Medical Devices,240.2,11+ days
+SDTTR.IS,Sdt Uzay ve Savunma Teknolojileri A.S.,2023-01-04,32.0,13.0,2.443749572617856,2.443749572617856,,,5.648609,13026800640.0,Industrials,Aerospace & Defense,224.6,11+ days
+TNZTP.IS,Tapdi Oksijen Ozel Saglik ve Egitim Hizmetleri San. Tic. A.S.,2023-01-11,10.21,3.0,0.3301869654614477,0.3301869654614477,22.148148,,1.0718766,9568000000.0,Healthcare,Medical Care Facilities,23.92,3-5 days
+SOKE.IS,Soke Degirmencilik San. ve Tic. A.S.,2023-01-12,7.5,11.0,1.84000001885827,1.84000001885827,,,1.4983051,5979154944.0,Consumer Defensive,Packaged Foods,15.47,11+ days
+ASTOR.IS,Astor Enerji A.S.,2023-01-18,12.5,9.0,1.3504000435711694,1.3504000435711694,25.125944,9.62613,5.9825473,199101005824.0,Industrials,Electrical Equipment & Parts,199.5,6-10 days
+MACKO.IS,Mackolik Internet Hizmetleri Tic. A.S.,2023-01-26,38.0,8.0,1.1394737158146038,1.1394737158146038,7.4887896,,3.1200376,3340000256.0,Communication Services,Internet Content & Information,33.4,6-10 days
+BVSAN.IS,Bulbuloglu Vinc San. ve Tic. A.S.,2023-02-06,31.0,2.0,0.2097066938491369,0.2097066938491369,12.517085,,1.7326187,4132240128.0,Industrials,Farm & Heavy Construction Machinery,109.9,1-2 days
+GOKNR.IS,Goknur Gida Maddeleri Enerji Imalat Ithalat Ihracat Tic. ve San. A.S.,2023-03-09,11.0,8.0,1.1418179462885818,1.1418179462885818,11.287233,,0.7674225,7426999808.0,Consumer Defensive,Packaged Foods,21.22,6-10 days
+AKFYE.IS,Akfen Yenilenebilir Enerji A.S.,2023-03-16,9.8,8.0,1.138775469762022,1.138775469762022,,,0.50788575,24193822720.0,Utilities,Utilities - Renewable,20.32,6-10 days
+EKSUN.IS,Eksun Gida Tarim San. ve Tic. A.S.,2023-03-24,48.9,7.0,0.9472558435208568,0.9472558435208568,,,1.4894751,3354000128.0,Consumer Defensive,Packaged Foods,5.59,6-10 days
+KOPOL.IS,Koza Polyester San. ve Tic. A.S.,2023-04-13,24.5,5.0,0.6087601574815864,0.6087601574815864,,,1.8817204,8170848256.0,Basic Materials,Specialty Chemicals,6.3,3-5 days
+CVKMD.IS,CVK Maden Isletmeleri San. ve Tic. A.S.,2023-04-13,105.0,5.0,0.6085716668423555,0.6085716668423555,264.6667,,4.9992127,44464001024.0,Basic Materials,Other Industrial Metals & Mining,31.76,3-5 days
+EUPWR.IS,Europower Enerji ve Otomasyon Teknolojileri San. Tic. A.S.,2023-04-20,40.6,7.0,0.9445812537904869,0.9445812537904869,40.239132,,2.317371,24433201152.0,Industrials,Electrical Equipment & Parts,37.02,6-10 days
+GRTHO.IS,Grainturk Holding A.S.,2023-04-26,17.6,6.0,0.7681817701916092,0.7681817701916092,18.41112,,3.7187734,33531250688.0,Consumer Defensive,Farm Products,268.25,6-10 days
+CWENE.IS,CW Enerji Muhendislik Tic. ve San. A.S.,2023-05-05,108.6,2.0,0.2096314805809178,0.2096314805809178,14.134616,,2.2725515,31701727232.0,Technology,Solar,29.4,1-2 days
+BIGCH.IS,BigChefs Buyuk Sefler Gida Turizm A.S.,2023-05-10,22.5,0.0,0.0,0.0,,,2.7660377,3921550080.0,Consumer Cyclical,Restaurants,7.33,0 days
+KAYSE.IS,Kayseri Seker Fabrikasi A.S.,2023-05-18,16.27,0.0,0.0,0.0,,,0.39496627,15630000128.0,Consumer Defensive,Confectioners,5.21,0 days
+BIENY.IS,Bien Yapi Urunleri San. Turizm ve Tic. A.S.,2023-05-18,42.8,0.0,0.0,0.0,,,0.6823578,8404080128.0,Industrials,Building Products & Equipment,23.28,0 days
+KTLEV.IS,Katilimevim Tasarruf Finansman A.S.,2023-06-12,13.43,2.0,0.2094788553038833,0.2094788553038833,12.997573,,9.738134,110848499712.0,Financial Services,Credit Services,53.55,1-2 days
+PASEU.IS,Pasifik Eurasia Lojistik Dis Ticaret A.S.,2023-06-14,25.0,4.0,0.4632000732421877,0.4632000732421877,77.63975,,23.93719,83999997952.0,Industrials,Integrated Freight & Logistics,125.0,3-5 days
+FORTE.IS,Forte Bilgi Iletisim Teknolojileri ve Savunma Sanayi A.S.,2023-06-14,12.12,3.0,0.3302326265403914,0.3302326265403914,2.6161811,,3.2217472,6261149696.0,Technology,Software - Application,93.45,3-5 days
+A1CAP.IS,A1 Capital Yatirim Menkul Degerler A.S.,2023-06-15,25.0,3.0,0.3303999900817871,0.3303999900817871,2.9682539,,1.7523948,11360249856.0,Financial Services,Capital Markets,16.83,3-5 days
+ATAKP.IS,Atakey Patates Gida San. ve Tic. A.S.,2023-07-27,39.5,6.0,0.7700276135765698,0.7700276135765698,35.960266,,1.1956929,7535102464.0,Consumer Defensive,Packaged Foods,54.3,6-10 days
+KLSER.IS,Kaleseramik Canakkale Kalebodur Seramik Sanayi A.S.,2023-07-27,25.0,8.0,1.1399999735335815,1.1399999735335815,,,5.9438124,13178334208.0,Industrials,Building Products & Equipment,25.6,6-10 days
+FZLGY.IS,Fuzul Gayrimenkul Yatirim Ortakligi A.S.,2023-07-28,8.9,5.0,0.6078653741938838,0.6078653741938838,10.883333,,3.579063,16325000192.0,Real Estate,REIT - Residential,13.06,3-5 days
+ASGYO.IS,Asce Gayrimenkul Yatirim Ortakligi A.S.,2023-08-03,12.6,5.0,0.6079365541861952,0.6079365541861952,,,0.3725542,7453290496.0,Real Estate,Real Estate - Development,11.31,3-5 days
+IZENR.IS,Izdemir Enerji Elektrik Uretim A.S.,2023-08-16,19.0,14.0,2.7789474368065417,2.7789474368065417,32.689655,,1.4638666,23166748672.0,Utilities,Utilities - Independent Power Producers,9.48,11+ days
+OFSYM.IS,Ofis Yem Gida San. Tic. A.S.,2023-08-16,27.2,15.0,3.154411841476179,3.154411841476179,20.855265,,2.403336,9272250368.0,Consumer Defensive,Packaged Foods,63.4,11+ days
+TATEN.IS,Tatlipinar Enerji Uretim A.S.,2023-08-17,22.5,14.0,2.779304804568077,2.779304804568077,15.92405,,2.6680806,11465414656.0,Utilities,Utilities - Renewable,12.58,11+ days
+BYDNR.IS,Baydoner Restoranlari A.S.,2023-08-21,21.0,12.0,2.1261905315676555,2.1261905315676555,,,2.1292777,3057600256.0,Consumer Cyclical,Restaurants,36.4,11+ days
+ENERY.IS,Enerya Enerji A.S.,2023-08-23,88.76,10.0,1.5854519315299975,1.5854519315299975,15.982759,,1.7252932,83429998592.0,Utilities,Utilities - Regulated Gas,9.27,6-10 days
+KZGYO.IS,Kuzugrup Gayrimenkul Yatirim Ortakligi A.S.,2023-08-29,20.76,9.0,1.3523225187834562,1.3523225187834562,,,0.3449509,,,,21.22,6-10 days
+EBEBK.IS,Ebebek Magazacilik A.S.,2023-09-07,46.5,5.0,0.6086021432733477,0.6086021432733477,180.57143,,2.2146688,10112000000.0,Consumer Cyclical,Specialty Retail,63.2,3-5 days
+TARKM.IS,Tarkim Bitki Koruma San. ve Tic. A.S.,2023-09-12,107.5,2.0,0.2098139060241883,0.2098139060241883,,,3.1715136,7937999872.0,Basic Materials,Agricultural Inputs,378.0,1-2 days
+GIPTA.IS,Gipta Ofis Kirtasiye ve Promosyon Urunleri Imalat San. A.S.,2023-09-14,20.9,5.0,0.6077592910600575,0.6077592910600575,3.7588446,,2.3402226,8415000064.0,Consumer Cyclical,Specialty Retail,63.75,3-5 days
+REEDR.IS,Reeder Teknoloji San. ve Tic. A.S.,2023-09-21,9.3,10.0,1.58494645067201,1.58494645067201,,,0.7518427,5814000128.0,Technology,Consumer Electronics,6.12,6-10 days
+ADGYO.IS,Adra Gayrimenkul Yatirim Ortakligi A.S.,2023-09-20,22.66,5.0,0.6085071575706473,0.6085071575706473,22.763159,,4.637241,28329846784.0,Real Estate,REIT - Residential,51.9,3-5 days
+HATSN.IS,Hat-San Gemi Insaa Bakim Onarim Deniz Nakliyat San. ve Tic. A.S.,2023-09-22,22.6,11.0,1.8429202841841987,1.8429202841841987,80.478264,,1.413085,8199929856.0,Industrials,Aerospace & Defense,37.02,11+ days
+DMRGD.IS,DMR Unlu Mamuller Uretim Gida Toptan Perakende Ihracat A.S.,2023-09-29,10.24,8.0,1.139431535586704,1.139431535586704,35.8,,3.091537,5306992128.0,Consumer Defensive,Packaged Foods,3.58,6-10 days
+MEKAG.IS,Meka Global Makine Imalat San. ve Tic. A.S.,2023-10-12,25.0,12.0,2.1300004505505257,2.1300004505505257,,,4.438503,5976000000.0,Basic Materials,Building Materials,7.47,11+ days
+DOFER.IS,Dofer Yapi Malzemeleri San. ve Tic. A.S.,2023-10-16,17.11,11.0,1.8464401717109769,1.8464401717109769,,,1.5354313,1912224896.0,Basic Materials,Steel,34.3,11+ days
+BORLS.IS,Borlease Otomotiv A.S.,2023-10-19,25.29,5.0,0.610064745658963,0.610064745658963,,,1.795818,2044000000.0,Industrials,Rental & Leasing Services,2.92,3-5 days
+MHRGY.IS,MHR Gayrimenkul Yatirim Ortakligi A.S.,2023-10-18,4.3,6.0,0.7674423556419039,0.7674423556419039,3.4545455,,0.5712377,4242510080.0,Real Estate,REIT - Office,3.42,6-10 days
+VRGYO.IS,Vera Konsept Gayrimenkul Yatirim Ortakligi A.S.,2023-10-27,15.78,4.0,0.4620172250617469,0.4620172250617469,,,0.36924064,1886000000.0,Real Estate,REIT - Diversified,2.3,3-5 days
+TABGD.IS,Tab Gida San. ve Tic. A.S.,2023-10-26,130.0,4.0,0.4638462046655114,0.4638462046655114,25.650652,7.5530124,3.005442,66956075008.0,Consumer Cyclical,Restaurants,256.25,3-5 days
+MARBL.IS,Tureks Turunc Madencilik Ic ve Dis Tic. A.S.,2023-11-08,10.97,7.0,0.9427858128976992,0.9427858128976992,22.037737,,1.0388687,2670048000.0,Basic Materials,Building Materials,11.68,6-10 days
+BINHO.IS,1000 Yatirimlar Holding A.S.,2023-11-20,125.0,9.0,1.353999972774504,1.353999972774504,,,0.7431313,10992078848.0,Industrials,Conglomerates,8.52,6-10 days
+EKOS.IS,Ekos Teknoloji ve Elektrik A.S.,2023-11-21,12.77,13.0,2.439458818352689,2.439458818352689,,,1.9474394,6473600000.0,Industrials,Electrical Equipment & Parts,5.78,11+ days
+AGROT.IS,Agrotech Yuksek Teknoloji ve Yatirim A.S.,2023-11-23,5.21,10.0,1.5858639170000437,1.5858639170000437,,,0.9073784,6936000000.0,Industrials,Conglomerates,2.89,6-10 days
+BEGYO.IS,Bati Ege Gayrimenkul Yatirim Ortakligi A.S.,2023-12-08,3.0,4.0,0.4599998990655745,0.4599998990655745,,,0.6867509,3455599872.0,Real Estate,Real Estate - Development,4.24,3-5 days
+SKYMD.IS,Seker Yatirim Menkul Degerler A.S.,2023-12-06,7.0,6.0,0.7685715510055688,0.7685715510055688,,,1.6243929,1866199936.0,Financial Services,Capital Markets,12.04,6-10 days
+CATES.IS,Cates Elektrik Uretim A.S.,2023-12-07,57.15,4.0,0.4631662777111816,0.4631662777111816,,,0.80764973,8441719808.0,Utilities,Utilities - Independent Power Producers,51.1,3-5 days
+SURGY.IS,Sur Tatil Evleri Gayrimenkul Yatirim Ortakligi A.S.,2023-12-14,49.18,0.0,0.0,0.0,6.189451,,1.0591855,9631250432.0,Real Estate,Real Estate - Development,57.5,0 days
+KBORU.IS,Kuzey Boru A.S.,2023-12-14,36.2,4.0,0.462707331521228,0.462707331521228,17.98077,,2.6449788,11220000768.0,Basic Materials,Building Materials,18.7,3-5 days
+MEGMT.IS,Mega Metal San. ve Tic. A.S.,2023-12-15,28.3,0.0,0.0,0.0,15.146728,,4.1282144,17781499904.0,Industrials,Electrical Equipment & Parts,67.1,0 days
+AVPGY.IS,Avrupakent Gayrimenkul Yatirim Ortakligi A.S.,2023-12-21,55.08,0.0,0.0,0.0,12.29293,,0.49351677,19472001024.0,Real Estate,Real Estate - Diversified,48.68,0 days
+PATEK.IS,Pasifik Donanim ve Yazilim Bilgi Teknolojileri A.S.,2024-02-13,35.0,15.0,3.1600000709848697,3.1600000709848697,9.121212,,5.201613,12189315072.0,Technology,Information Technology Services,18.06,11+ days
+BORSK.IS,Bor Seker A.S.,2024-02-15,26.54,7.0,0.9451677314194944,0.9451677314194944,,,0.8564815,6038400000.0,Consumer Defensive,Confectioners,6.29,6-10 days
+LMKDC.IS,Limak Dogu Anadolu Cimento San. ve Tic. A.S.,2024-02-22,16.2,9.0,1.3530864438568249,1.3530864438568249,11.71141,,2.6475499,18014672896.0,Basic Materials,Building Materials,34.9,6-10 days
+ALVES.IS,Alves Kablo San. ve Tic. A.S.,2024-02-29,19.45,12.0,2.12558454369606,2.12558454369606,50.333336,,1.8792782,4832000000.0,Industrials,Electrical Equipment & Parts,3.02,11+ days
+OBAMS.IS,Oba Makarnacilik San. ve Tic. A.S.,2024-03-01,39.24,5.0,0.6082020375425283,0.6082020375425283,,,1.9248586,21516447744.0,Consumer Defensive,Packaged Foods,7.48,3-5 days
+ARTMS.IS,Artemis Hali A.S.,2024-03-04,25.35,10.0,1.5882353118244883,1.5882353118244883,9.355164,,1.1728668,2599800064.0,Consumer Cyclical,Textile Manufacturing,37.14,6-10 days
+MOGAN.IS,Mogan Enerji Yatirim Holding A.S.,2024-03-07,11.33,7.0,0.9457464633110548,0.9457464633110548,15.777778,,0.35345992,24254672896.0,Utilities,Utilities - Renewable,9.94,6-10 days
+ODINE.IS,Odine Solutions Teknoloji Tic. ve San. A.S.,2024-03-21,30.0,10.0,1.588333384195964,1.588333384195964,188.61111,,36.587994,75029504000.0,Technology,Software - Infrastructure,679.0,6-10 days
+ENTRA.IS,IC Enterra Yenilenebilir Enerji A.S.,2024-04-04,10.0,0.0,0.0,0.0,,,0.6101593,18726748160.0,Utilities,Utilities - Renewable,10.15,0 days
+RGYAS.IS,Ronesans Gayrimenkul Yatirim A.S.,2024-04-26,135.0,0.0,0.0,0.0,12.138508,,0.39698938,52794499072.0,Real Estate,Real Estate - Development,159.5,0 days
+LILAK.IS,Lila Kagit San. ve Tic. A.S.,2024-05-09,37.39,0.0,0.0,0.0,10.436242,59.807693,1.1308268,18349000704.0,Consumer Defensive,Household & Personal Products,31.1,0 days
+KOTON.IS,Koton Magazacilik Tekstil San. ve Tic. A.S.,2024-05-10,30.5,0.0,0.0,0.0,6.8709674,,1.8487291,12370080768.0,Consumer Cyclical,Apparel Manufacturing,14.91,0 days
+ALTNY.IS,Altinay Savunma Teknolojileri A.S.,2024-05-16,32.0,9.0,1.3546871576225583,1.3546871576225583,35.348835,,3.492647,15200000000.0,Industrials,Aerospace & Defense,15.2,6-10 days
+KOCMT.IS,Koc Metalurji A.S.,2024-05-17,20.5,3.0,0.3293699494240625,0.3293699494240625,,,0.5169867,6120220160.0,Industrials,Metal Fabrication,2.45,3-5 days
+HRKET.IS,Hareket Proje Tasimaciligi ve Yuk Muhendisligi A.S.,2024-05-23,70.0,4.0,0.4628571646554131,0.4628571646554131,,,0.8256462,7712639488.0,Industrials,Engineering & Construction,66.95,3-5 days
+ONRYT.IS,Onur Yuksek Teknoloji A.S.,2024-05-28,49.5,7.0,0.9444444171993872,0.9444444171993872,98.559326,,1.4084678,3653564672.0,Industrials,Aerospace & Defense,58.15,6-10 days
+OZYSR.IS,Ozyasar Tel ve Galvanizleme San. A.S.,2024-05-29,28.0,3.0,0.3307142587318485,0.3307142587318485,36.30159,,1.570634,4720368128.0,Industrials,Electrical Equipment & Parts,45.74,3-5 days
+ALKLC.IS,Altinkilic Gida ve Sut San. Tic. A.S.,2024-06-04,22.98,3.0,0.329928670059191,0.329928670059191,208.45325,,13.653927,32451999744.0,Consumer Defensive,Packaged Foods,289.75,3-5 days
+YIGIT.IS,Yigit Aku Malzemeleri Nakliyat Turizm Insaat San. ve Tic. A.S.,2024-06-06,34.68,0.0,0.0,0.0,15.597221,,1.0342604,6749229568.0,Industrials,Electrical Equipment & Parts,22.46,0 days
+HOROZ.IS,Horoz Lojistik Kargo Hizmetleri ve Tic. A.S.,2024-06-07,55.0,0.0,0.0,0.0,,,1.4336208,5248309248.0,Industrials,Integrated Freight & Logistics,58.0,0 days
+SEGMN.IS,Segmen Kardesler Gida Uretim ve Ambalaj San. A.S.,2024-07-04,30.0,0.0,0.0,0.0,44.586777,,1.9790177,9657050112.0,Consumer Defensive,Packaged Foods,53.95,0 days
+EFOR.IS,Efor Yatirim Sanayi Ticaret A.S.,2024-07-05,14.5,0.0,0.0,0.0,,,8.526216,39312896000.0,Consumer Defensive,Farm Products,18.05,0 days
+DCTTR.IS,DCT Trading Dis Ticaret A.S.,2024-07-31,14.0,6.0,0.7685715340988377,0.7685715340988377,,,3.3307724,3381299968.0,Financial Services,Capital Markets,8.67,6-10 days
+BAHKM.IS,Bahadir Kimya San. ve Tic. A.S.,2024-08-13,51.0,5.0,0.6088236330089776,0.6088236330089776,,,4.9745946,6677000192.0,Basic Materials,Chemicals,121.4,3-5 days
+TCKRC.IS,Kirac Galvaniz Telekominikasyon Metal Makine Insaat Elektrik San. ve Tic. A.S.,2024-08-21,24.0,3.0,0.3308333748157586,0.3308333748157586,38.247013,,3.7206419,16320000000.0,Industrials,Metal Fabrication,96.0,3-5 days
+GUNDG.IS,Gundogdu Gida Sut Urunleri San. ve Dis Tic. A.S.,2024-08-22,35.0,7.0,0.9442858401498896,0.9442858401498896,,,34.17119,26032500736.0,Consumer Defensive,Packaged Foods,667.5,6-10 days
+AHSGY.IS,AHES Gayrimenkul Yatirim Ortakligi A.S.,2024-08-29,25.2,0.0,0.0,0.0,,,2.1225338,14747460608.0,Real Estate,REIT - Diversified,20.44,0 days
+OZATD.IS,Ozata Denizcilik San. ve Tic. A.S.,2024-09-05,105.0,5.0,0.6085713704427085,0.6085713704427085,,,3.7288249,15768349696.0,Industrials,Aerospace & Defense,221.0,3-5 days
+CEMZY.IS,Cem Zeytin A.S.,2024-09-09,15.3,3.0,0.3307190001730555,0.3307190001730555,,,5.542397,23516999680.0,Consumer Defensive,Farm Products,58.5,3-5 days
+DURKN.IS,Durukan Sekerleme San. ve Tic. A.S.,2024-09-17,17.0,3.0,0.329411679747279,0.329411679747279,31.172415,,1.068053,2395599872.0,Consumer Defensive,Packaged Foods,18.08,3-5 days
+BINBN.IS,Bin Ulasim ve Akilli Sehir Teknolojileri A.S.,2024-10-09,91.85,0.0,0.0,0.0,,,9.533958,19040000000.0,Technology,Information Technology Services,170.0,0 days
+CGCAM.IS,Cagdas Cam San. ve Tic. A.S.,2024-12-17,20.0,3.0,0.3310000419616703,0.3310000419616703,13.651852,,1.4916434,6192480256.0,Basic Materials,Building Materials,36.86,3-5 days
+SMRVA.IS,Sumer Varlik Yonetim A.S.,2024-12-18,22.0,0.0,0.0,0.0,8.222524,,2.878723,7150799872.0,Financial Services,Asset Management,60.6,0 days
+ARMGD.IS,Armada Gida Ticaret Sanayi A.S.,2025-01-03,40.0,0.0,0.0,0.0,34.773754,,3.534796,20286926848.0,Consumer Defensive,Packaged Foods,76.85,0 days
+EGEGY.IS,Egeyapi Avrupa Gayrimenkul Yatirim Ortakligi A.S.,2025-01-14,15.0,0.0,0.0,0.0,,,4.53431,5696000000.0,Real Estate,Real Estate - Development,28.48,0 days
+GLRMK.IS,Gulermak Agir Sanayi Insaat ve Taahhut A.S.,2025-01-17,125.0,0.0,0.0,0.0,13.443436,,2.9589777,52519280640.0,Industrials,Infrastructure Operations,162.8,0 days
+AKFIS.IS,Akfen Insaat Turizm ve Ticaret A.S.,2025-01-23,38.7,0.0,0.0,0.0,12.5342455,,0.79258513,23298975744.0,Real Estate,Real Estate - Development,36.6,0 days
+MOPAS.IS,Mopas Marketcilik Gida San. ve Tic. A.S.,2025-01-29,35.0,0.0,0.0,0.0,12.757765,,2.4204574,11214840832.0,Consumer Defensive,Packaged Foods,41.08,0 days
+SERNT.IS,Seranit Granit Seramik San. ve Tic. A.S.,2025-02-04,12.0,4.0,0.4633333099731289,0.4633333099731289,2.559322,,0.68918306,3118150144.0,Basic Materials,Building Materials,7.55,3-5 days
+BIGEN.IS,Birlesim Grup Enerji Yatirimlari A.S.,2025-02-05,12.14,0.0,0.0,0.0,7.944954,,1.2644181,4996819968.0,Utilities,Utilities - Renewable,8.66,0 days
+DSTKF.IS,Destek Finans Faktoring A.S.,2025-02-06,46.98,5.0,0.6079379970277119,0.6079379970277119,156.25,,49.15481,600000036864.0,Financial Services,Capital Markets,1800.0,3-5 days
+VSNMD.IS,Visne Madencilik Uretim San. ve Tic. A.S.,2025-02-11,37.44,3.0,0.3302573701737976,0.3302573701737976,136.2069,,2.687349,9242999808.0,Basic Materials,Building Materials,79.0,3-5 days
+ENDAE.IS,Enda Enerji Holding A.S.,2025-02-13,17.44,0.0,0.0,0.0,47.24138,,0.5890193,5746231296.0,Utilities,Utilities - Renewable,13.7,0 days
+KLYPV.IS,Kalyon Gunes Teknolojileri Uretim A.S.,2025-02-13,70.3,0.0,0.0,0.0,,,1.7748823,23596142592.0,Technology,Solar,57.35,0 days
+BALSU.IS,Balsu Gida San. ve Tic. A.S.,2025-02-20,17.57,0.0,0.0,0.0,,10.930233,3.0975397,15679200256.0,Consumer Defensive,Packaged Foods,14.1,0 days
+BULGS.IS,Bulls Girisim Sermayesi Yatirim Ortakligi A.S.,2025-02-21,12.18,3.0,0.3300224145508901,0.3300224145508901,13.054546,,1.7745191,11545440256.0,Financial Services,Capital Markets,43.08,3-5 days
+DMLKT.IS,Damla Kent Projesi,2025-08-14,7.59,,,,,,,,,,,
+DOFRB.IS,Dof Robotik Sanayi A.S.,2025-09-11,45.0,10.0,1.584444512261285,1.584444512261285,75.391304,,7.5306177,13438499840.0,Consumer Cyclical,Leisure,86.7,6-10 days
+MARMR.IS,Marmara Holding A.S.,2025-09-16,1.356,17.0,3.92666664884548,3.92666664884548,,,1.5564462,7027923456.0,Industrials,Conglomerates,2.33,11+ days
+ECOGR.IS,Ecogreen Enerji Holding A.S.,2025-11-03,10.4,11.0,1.846153987229934,1.846153987229934,,,0.78133947,14741999616.0,Utilities,Utilities - Renewable,27.3,11+ days
+VAKFA.IS,Vakif Faktoring A.S.,2025-11-20,14.2,3.0,0.3302816569047335,0.3302816569047335,,,1.589625,11141999616.0,Financial Services,Credit Services,12.38,3-5 days
+PAHOL.IS,Pasifik Holding A.S.,2025-11-21,1.5,2.0,0.2066666459555577,0.2066666459555577,21.428572,,0.7857517,30000001024.0,Industrials,Conglomerates,1.5,1-2 days
+ZERGY.IS,Zeray Gayrimenkul Yatirim Ortakligi A.S.,2025-12-18,13.0,2.0,0.2099999486483068,0.2099999486483068,,,5.317769,12833000448.0,Real Estate,REIT - Residential,20.5,1-2 days

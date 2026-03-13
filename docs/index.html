@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPO Fever and the Cost of the Crowd | BIST 2020-2025</title>
+  <meta name="description" content="Underpricing, Herding, and Market Manipulation in Borsa Istanbul IPOs. Graduation thesis by Salih Cagatay Sonmez, Dokuz Eylul University.">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    :root {
+      --cyan: #00d4ff;
+      --green: #00ff88;
+      --red: #ff4757;
+      --yellow: #ffd43b;
+      --bg-dark: #0a0e1a;
+      --bg-card: rgba(15, 20, 30, 0.9);
+      --border: rgba(0, 212, 255, 0.2);
+      --text: #e2e8f0;
+      --text-dim: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(180deg, #0a0e1a 0%, #0f1419 50%, #0a0e1a 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: rgba(0,212,255,0.3); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1f2e; }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
+
+    /* Animated background grid */
+    .grid-bg {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 0; text-align: center;
+    }
+    .hero-badge {
+      display: inline-block; padding: 6px 16px; border-radius: 50px;
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--cyan);
+      margin-bottom: 32px; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.1;
+      background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, var(--green) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    .hero .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--text-dim);
+      font-weight: 300; margin-bottom: 48px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px; margin-top: 48px;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px 16px; text-align: center;
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      box-shadow: 0 0 30px rgba(0,212,255,0.15);
+      transform: translateY(-4px);
+    }
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 0.85rem; color: var(--text-dim); }
+    .cyan { color: var(--cyan); }
+    .green { color: var(--green); }
+    .red { color: var(--red); }
+    .yellow { color: var(--yellow); }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    .section-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 14px;
+      color: var(--cyan); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      margin-bottom: 24px; line-height: 1.2;
+    }
+    .section-desc { font-size: 1.1rem; color: var(--text-dim); line-height: 1.8; max-width: 800px; margin-bottom: 48px; }
+
+    /* Research Questions */
+    .rq-grid { display: flex; flex-direction: column; gap: 20px; }
+    .rq-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 32px; display: flex; align-items: flex-start; gap: 20px;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .rq-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--cyan), var(--green));
+      border-radius: 4px 0 0 4px;
+    }
+    .rq-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      box-shadow: 0 0 40px rgba(0,212,255,0.1);
+      transform: translateX(8px);
+    }
+    .rq-number {
+      font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700;
+      color: var(--cyan); min-width: 48px; opacity: 0.8;
+    }
+    .rq-content h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+    .rq-content p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
+    .rq-tag {
+      display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 50px;
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);
+      color: var(--cyan); font-family: 'JetBrains Mono', monospace; margin-top: 10px;
+      margin-right: 6px;
+    }
+
+    /* Findings cards */
+    .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .finding-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 32px; transition: all 0.3s ease;
+    }
+    .finding-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      box-shadow: 0 0 30px rgba(0,212,255,0.15);
+      transform: translateY(-4px);
+    }
+    .finding-card h3 {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .finding-card p { color: var(--text-dim); line-height: 1.7; font-size: 0.95rem; }
+    .finding-icon { font-size: 1.5rem; }
+
+    /* Chart containers */
+    .chart-container {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; margin-bottom: 32px;
+    }
+    .chart-container h3 {
+      font-size: 1rem; font-weight: 600; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* Methodology timeline */
+    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .method-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px; text-align: center; transition: all 0.3s ease;
+    }
+    .method-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      box-shadow: 0 0 30px rgba(0,212,255,0.15);
+      transform: translateY(-4px);
+    }
+    .method-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .method-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .method-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* Authors / Info */
+    .info-bar {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
+      padding: 32px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; margin-top: 32px;
+    }
+    .info-item { text-align: center; }
+    .info-item .label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .info-item .value { font-weight: 600; }
+
+    /* Footer */
+    footer {
+      padding: 48px 0; border-top: 1px solid rgba(0,212,255,0.1); text-align: center;
+      color: var(--text-dim); font-size: 0.9rem;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Divider */
+    .divider {
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
+      margin: 0 auto; max-width: 600px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .findings-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: repeat(2, 1fr); }
+      .info-bar { gap: 20px; }
+      .rq-card { flex-direction: column; gap: 12px; }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      opacity: 0; animation: fadeInUp 0.6s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    /* Glow pulse for hero number */
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 10px rgba(0,212,255,0.3); }
+      50% { text-shadow: 0 0 25px rgba(0,212,255,0.6), 0 0 50px rgba(0,212,255,0.2); }
+    }
+    .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="animate-in">
+        <span class="hero-badge">Dokuz Eylul University &middot; 2026</span>
+      </div>
+      <h1 class="animate-in delay-1">IPO Fever and the<br>Cost of the Crowd</h1>
+      <p class="subtitle animate-in delay-2">Underpricing, Herding, and Market Manipulation<br>in Borsa Istanbul IPOs, 2020&ndash;2025</p>
+
+      <div class="info-bar animate-in delay-3">
+        <div class="info-item">
+          <div class="label">Author</div>
+          <div class="value">Salih Cagatay Sonmez</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Supervisor</div>
+          <div class="value">Prof. Dr. M. Banu Durukan Sali</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Supervisor</div>
+          <div class="value">Assoc. Prof. Dr. Efe Caglar Cagli</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Department</div>
+          <div class="value">Accounting &amp; Finance</div>
+        </div>
+      </div>
+
+      <div class="hero-stats animate-in delay-4">
+        <div class="stat-card">
+          <div class="stat-value cyan glow-pulse">209</div>
+          <div class="stat-label">IPOs Analysed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value green glow-pulse">67.8%</div>
+          <div class="stat-label">Mean Underpricing</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value red glow-pulse">&minus;7.4%</div>
+          <div class="stat-label">SPK Penalty CAAR</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value yellow glow-pulse">25</div>
+          <div class="stat-label">Academic References</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════ RESEARCH QUESTIONS ═══════ -->
+  <section id="research">
+    <div class="container">
+      <div class="section-title">Research Questions</div>
+      <h2 class="section-heading">Five Questions, One Story</h2>
+      <p class="section-desc">
+        Our research questions form a narrative arc: <strong style="color:var(--cyan)">IPO Fever</strong> captures the underpricing phenomenon and its determinants, while <strong style="color:var(--green)">the Cost of the Crowd</strong> examines herding, manipulation, and investor losses.
+      </p>
+
+      <div class="rq-grid">
+        <div class="rq-card">
+          <div class="rq-number">RQ1</div>
+          <div class="rq-content">
+            <h3>Magnitude of IPO Underpricing Under Price Limits</h3>
+            <p>What is the magnitude and duration of IPO underpricing on Borsa Istanbul under the daily price limit regime (2020&ndash;2025), and how does the consecutive limit-up mechanism affect measured initial returns?</p>
+            <span class="rq-tag">Durukan (2002)</span><span class="rq-tag">Ljungqvist (2007)</span><span class="rq-tag">Wang et al. (2018)</span>
+          </div>
+        </div>
+        <div class="rq-card">
+          <div class="rq-number">RQ2</div>
+          <div class="rq-content">
+            <h3>Cross-Sectional Determinants</h3>
+            <p>Which firm-specific characteristics are significant cross-sectional determinants of IPO underpricing on BIST, and are these consistent with asymmetric information theories?</p>
+            <span class="rq-tag">Rock (1986)</span><span class="rq-tag">Bildik &amp; Yilmaz (2008)</span>
+          </div>
+        </div>
+        <div class="rq-card">
+          <div class="rq-number">RQ3</div>
+          <div class="rq-content">
+            <h3>Investor Herding Behaviour</h3>
+            <p>Is there evidence of investor herding behaviour in Borsa Istanbul during 2020&ndash;2025, and does herding intensity differ between bull and bear market sub-periods?</p>
+            <span class="rq-tag">Chang et al. (2000)</span><span class="rq-tag">Durukan et al. (2017)</span>
+          </div>
+        </div>
+        <div class="rq-card">
+          <div class="rq-number">RQ4</div>
+          <div class="rq-content">
+            <h3>SPK Manipulation Penalty Effects</h3>
+            <p>What is the stock price impact of SPK (Capital Markets Board) market manipulation penalties on sanctioned firms?</p>
+            <span class="rq-tag">MacKinlay (1997)</span><span class="rq-tag">Ferris &amp; Pritchard (1994)</span>
+          </div>
+        </div>
+        <div class="rq-card">
+          <div class="rq-number">RQ5</div>
+          <div class="rq-content">
+            <h3>Post-IPO Overreaction &amp; Contrarian Strategy</h3>
+            <p>Does the post-IPO price pattern support the overreaction hypothesis, and can a contrarian strategy generate abnormal returns after the limit-up streak ends?</p>
+            <span class="rq-tag">De Bondt &amp; Thaler (1985)</span><span class="rq-tag">Ritter (1991)</span><span class="rq-tag">Kiymaz (2000)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════ KEY FINDINGS ═══════ -->
+  <section id="findings">
+    <div class="container">
+      <div class="section-title">Key Findings</div>
+      <h2 class="section-heading">What We Discovered</h2>
+      <p class="section-desc">Five interconnected results revealing the dynamics of Turkey's IPO boom: massive underpricing, behavioural determinants, no aggregate herding, regulatory impact, and short-term overreaction.</p>
+
+      <div class="findings-grid">
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x1F4C8;</span> <span class="cyan">67.8% Mean Underpricing</span></h3>
+          <p>BIST IPOs are significantly underpriced (t&nbsp;=&nbsp;10.82, p&nbsp;&lt;&nbsp;0.001) when measured using consecutive limit-up methodology. The standard first-day return of 6.6% understates true underpricing by <strong>10x</strong>. Median: 33.1%, with streaks up to 21 consecutive limit-up days.</p>
+        </div>
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x1F4CA;</span> <span class="green">P/B Drives Underpricing</span></h3>
+          <p>Cross-sectional OLS reveals price-to-book ratio is the <strong>only significant determinant</strong> (p&nbsp;=&nbsp;0.040). P/E ratio is insignificant. Observable fundamentals explain only 10&ndash;21% of variation&mdash;underpricing is primarily <strong>behavioural</strong>, not fundamental.</p>
+        </div>
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x1F50D;</span> No Aggregate Herding</h3>
+          <p>CSAD herding test yields &gamma;<sub>2</sub>&nbsp;=&nbsp;0.645 (p&nbsp;=&nbsp;0.666)&mdash;<strong>no herding detected</strong>. However, CSAD test power averages only 59.37% (Zhang, 2024), so the null result should be interpreted with caution.</p>
+        </div>
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x26A0;</span> <span class="red">&minus;7.4% Penalty CAAR</span></h3>
+          <p>SPK manipulation penalties produce significant negative abnormal returns. Pre-event CAAR of &minus;5.4% suggests market anticipation. 78.7% of cases are transaction-based manipulation. First formal event study of SPK penalties in Turkish literature.</p>
+        </div>
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x1F4B0;</span> <span class="yellow">Short-Term SELL Signal</span></h3>
+          <p>Contrarian strategy: <strong>&minus;3.3% at 5 days</strong> (p&nbsp;=&nbsp;0.021) after limit-up streak ends, consistent with overreaction. Only 32.8% of stocks positive. Long-term: +72.6% at 365 days (bull market effect).</p>
+        </div>
+        <div class="finding-card">
+          <h3><span class="finding-icon">&#x1F4B8;</span> Inflation Erodes Returns</h3>
+          <p>Cumulative CPI inflation exceeded <strong>500%</strong> (2020&ndash;2025). BIST-100 rose 688% nominally but only ~40% in real terms. Median 365-day real IPO returns fall to roughly half their nominal values.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════ INTERACTIVE CHARTS ═══════ -->
+  <section id="data">
+    <div class="container">
+      <div class="section-title">Data Visualisation</div>
+      <h2 class="section-heading">The Numbers Behind the Story</h2>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 24px;">
+        <div class="chart-container">
+          <h3><span style="color:var(--cyan)">&#9679;</span> IPO Distribution &amp; Underpricing by Year</h3>
+          <div id="chart-yearly" style="width:100%;height:360px;"></div>
+        </div>
+        <div class="chart-container">
+          <h3><span style="color:var(--red)">&#9679;</span> SPK Event Study: CAAR [-30, +30]</h3>
+          <div id="chart-caar" style="width:100%;height:360px;"></div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <h3><span style="color:var(--green)">&#9679;</span> Contrarian Strategy: Post-Limit-Up Returns by Horizon</h3>
+        <div id="chart-contrarian" style="width:100%;height:360px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════ METHODOLOGY ═══════ -->
+  <section id="methodology">
+    <div class="container">
+      <div class="section-title">Methodology</div>
+      <h2 class="section-heading">How We Did It</h2>
+      <p class="section-desc">
+        Following <strong>Loughran, Ritter, and Rydqvist (1994, updated 2026)</strong> for price-limit markets, we measure initial returns at the first unconstrained closing price. Our approach combines four established methodologies.
+      </p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-icon">&#x1F3AF;</div>
+          <h3>Consecutive Limit-Up</h3>
+          <p>Underpricing<sub>i</sub> = P<sub>free</sub> / P<sub>close</sub> &minus; 1, where P<sub>free</sub> is the first unconstrained close. Turkish term: <em>tavan serisi</em>.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">&#x1F4D0;</div>
+          <h3>Cross-Sectional OLS</h3>
+          <p>4 progressive models with HC3 robust standard errors. Variables: ln(offer price), ln(market cap), P/E, P/B, year dummies, hot market.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">&#x1F4C9;</div>
+          <h3>CSAD Herding (CCK 2000)</h3>
+          <p>CSAD<sub>t</sub> = &alpha; + &gamma;<sub>1</sub>|R<sub>m</sub>| + &gamma;<sub>2</sub>R<sub>m</sub>&sup2;. Herding if &gamma;<sub>2</sub> &lt; 0. Newey-West HAC standard errors.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">&#x1F4CB;</div>
+          <h3>Event Study (MacKinlay 1997)</h3>
+          <p>Market model with [-250, -31] estimation window. Boehmer et al. (1991) standardised test for CAR significance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════ DATA SECTION ═══════ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">Data &amp; Sample</div>
+      <h2 class="section-heading">209 IPOs, 3 Sources, 0 Guesses</h2>
+      <p class="section-desc">
+        Every data point is verified from at least three independent sources: <strong>halkarz.com</strong> (offer data), <strong>KAP</strong> (official disclosures), and <strong>SPK bulletins</strong> (regulatory confirmations). Daily prices from Yahoo Finance with split adjustments.
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <div class="stat-card">
+          <div class="stat-value" style="font-size:1.6rem; color:var(--cyan);">2020&ndash;2025</div>
+          <div class="stat-label">Study Period</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="font-size:1.6rem; color:var(--green);">1,496</div>
+          <div class="stat-label">Trading Days (CSAD)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="font-size:1.6rem; color:var(--yellow);">47</div>
+          <div class="stat-label">SPK Penalty Cases</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="font-size:1.6rem; color:var(--red);">1.13B TL</div>
+          <div class="stat-label">Total Fines</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="font-size:1.6rem; color:var(--text);">112</div>
+          <div class="stat-label">IPOs with P/E Data</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom:12px;">
+        <strong style="color:var(--text);">IPO Fever and the Cost of the Crowd</strong>
+      </p>
+      <p>
+        Salih Cagatay Sonmez &middot; Dokuz Eylul University, Faculty of Business &middot; Izmir, 2026
+      </p>
+      <p style="margin-top:12px;">
+        Supervised by Prof. Dr. M. Banu Durukan Sali &amp; Assoc. Prof. Dr. Efe Caglar Cagli
+      </p>
+      <p style="margin-top:24px; font-size:0.8rem; color:#475569;">
+        Built with data from halkarz.com, KAP, SPK, and Yahoo Finance.
+        Methodology follows <a href="https://site.warrington.ufl.edu/ritter/ipo-data/" target="_blank">Loughran, Ritter &amp; Rydqvist (1994, updated 2026)</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════ PLOTLY CHARTS ═══════ -->
+  <script>
+    const layout_base = {
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(15,20,30,0.5)',
+      font: { family: 'JetBrains Mono, monospace', color: '#94a3b8', size: 12 },
+      margin: { t: 30, r: 20, b: 50, l: 60 },
+      xaxis: { gridcolor: 'rgba(0,212,255,0.08)', zerolinecolor: 'rgba(0,212,255,0.15)' },
+      yaxis: { gridcolor: 'rgba(0,212,255,0.08)', zerolinecolor: 'rgba(0,212,255,0.15)' },
+      hoverlabel: { bgcolor: '#1a1f2e', bordercolor: '#00d4ff', font: { color: '#e2e8f0' } },
+    };
+
+    // Chart 1: IPOs by Year
+    Plotly.newPlot('chart-yearly', [
+      {
+        x: ['2020','2021','2022','2023','2024','2025'],
+        y: [8, 53, 39, 56, 33, 20],
+        type: 'bar', name: 'N IPOs',
+        marker: { color: 'rgba(0,212,255,0.6)', line: { color: '#00d4ff', width: 1 } },
+        yaxis: 'y'
+      },
+      {
+        x: ['2020','2021','2022','2023','2024','2025'],
+        y: [105.2, 41.5, 54.7, 104.2, 61.6, 51.8],
+        type: 'scatter', mode: 'lines+markers', name: 'Mean Underpricing %',
+        line: { color: '#00ff88', width: 3 },
+        marker: { size: 8, color: '#00ff88' },
+        yaxis: 'y2'
+      }
+    ], {
+      ...layout_base,
+      yaxis: { ...layout_base.yaxis, title: 'Number of IPOs' },
+      yaxis2: { title: 'Mean Underpricing (%)', overlaying: 'y', side: 'right',
+                gridcolor: 'rgba(0,255,136,0.05)', font: { color: '#00ff88' } },
+      legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(15,20,30,0.8)', bordercolor: 'rgba(0,212,255,0.2)', borderwidth: 1 },
+      barmode: 'group'
+    }, { responsive: true, displayModeBar: false });
+
+    // Chart 2: CAAR
+    const caar_days = Array.from({length: 61}, (_, i) => i - 30);
+    const caar_vals = [0.74,-0.11,-0.76,-0.15,0.48,-0.33,-0.66,-0.09,-0.48,-1.16,-1.20,-1.52,-1.21,-1.42,-1.89,-2.31,-3.24,-3.34,-3.75,-4.35,-4.09,-4.24,-4.32,-4.71,-4.99,-4.48,-4.63,-4.44,-5.38,-5.43,-4.82,-4.61,-4.74,-4.57,-4.66,-5.47,-5.41,-4.94,-5.36,-5.59,-5.38,-4.91,-3.53,-3.35,-4.10,-3.25,-2.95,-2.61,-2.10,-2.77,-2.68,-2.32,-2.64,-3.51,-3.58,-3.00,-3.30,-4.17,-5.42,-6.20,-7.42];
+
+    Plotly.newPlot('chart-caar', [
+      {
+        x: caar_days, y: caar_vals,
+        type: 'scatter', mode: 'lines', name: 'CAAR (%)',
+        line: { color: '#ff4757', width: 2.5 },
+        fill: 'tozeroy', fillcolor: 'rgba(255,71,87,0.1)'
+      },
+      {
+        x: [0, 0], y: [-8, 2], type: 'scatter', mode: 'lines', name: 'Event Day',
+        line: { color: '#ffd43b', width: 2, dash: 'dash' },
+        showlegend: true
+      }
+    ], {
+      ...layout_base,
+      xaxis: { ...layout_base.xaxis, title: 'Days Relative to SPK Penalty Announcement' },
+      yaxis: { ...layout_base.yaxis, title: 'CAAR (%)' },
+      legend: { x: 0.02, y: 0.02, bgcolor: 'rgba(15,20,30,0.8)', bordercolor: 'rgba(0,212,255,0.2)', borderwidth: 1 },
+      shapes: [{ type: 'rect', x0: -30, x1: 0, y0: -8, y1: 2, fillcolor: 'rgba(255,71,87,0.03)', line: { width: 0 } }]
+    }, { responsive: true, displayModeBar: false });
+
+    // Chart 3: Contrarian
+    Plotly.newPlot('chart-contrarian', [
+      {
+        x: ['5d','10d','30d','60d','90d','180d','365d'],
+        y: [-3.3, -3.4, 4.8, 16.6, 21.7, 46.0, 72.6],
+        type: 'bar', name: 'Mean Return (%)',
+        marker: {
+          color: [-3.3,-3.4,4.8,16.6,21.7,46.0,72.6].map(v => v < 0 ? 'rgba(255,71,87,0.7)' : 'rgba(0,255,136,0.7)'),
+          line: {
+            color: [-3.3,-3.4,4.8,16.6,21.7,46.0,72.6].map(v => v < 0 ? '#ff4757' : '#00ff88'),
+            width: 1.5
+          }
+        }
+      },
+      {
+        x: ['5d','10d','30d','60d','90d','180d','365d'],
+        y: [-6.3, -9.3, -10.1, -3.4, -4.2, 1.1, 26.2],
+        type: 'scatter', mode: 'lines+markers', name: 'Median Return (%)',
+        line: { color: '#ffd43b', width: 2, dash: 'dot' },
+        marker: { size: 7, color: '#ffd43b' }
+      }
+    ], {
+      ...layout_base,
+      xaxis: { ...layout_base.xaxis, title: 'Holding Period (from end of limit-up streak)' },
+      yaxis: { ...layout_base.yaxis, title: 'Return (%)' },
+      legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(15,20,30,0.8)', bordercolor: 'rgba(0,212,255,0.2)', borderwidth: 1 },
+      shapes: [{ type: 'line', x0: -0.5, x1: 6.5, y0: 0, y1: 0, line: { color: 'rgba(255,255,255,0.2)', width: 1, dash: 'dot' } }]
+    }, { responsive: true, displayModeBar: false });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rq-card, .finding-card, .method-card, .chart-container').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

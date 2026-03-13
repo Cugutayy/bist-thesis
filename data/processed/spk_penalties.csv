@@ -1,0 +1,48 @@
+karar_tarihi,bulten_no,hisse_kodu,company_name,ceza_turu,kisi_sayisi,toplam_ceza_tl,inceleme_baslangic,inceleme_bitis,islem_yasagi,islem_yasagi_sure,notes,inceleme_suresi_gun,yil
+2020-03-19,2020/12,ARMDA,Armada Bilgisayar Sistemleri A.S.,islem_bazli,4,2600000,2019-05-01,2019-12-31,True,6,IT dagitim hissesinde islem bazli manipulasyon.,244,2020
+2020-06-11,2020/24,TEKTU,Tek-Art Insaat Ticaret Turizm Sanayi A.S.,islem_bazli,3,1850000,2019-08-01,2020-02-29,True,6,Turizm hissesinde islem bazli manipulasyon.,212,2020
+2020-07-16,2020/29,MGROS,Migros Ticaret A.S.,bilgi_bazli,2,3500000,2019-10-01,2020-04-30,False,0,Ici bilgi kullanimi; satis verileri aciklamasi oncesi islem.,212,2020
+2020-09-10,2020/37,ETILR,Etiler Gida ve Ticari Yatirimlar A.S.,islem_bazli,5,3200000,2019-06-01,2020-03-31,True,6,Gida sektoru hissesinde manipulasyon.,304,2020
+2020-11-05,2020/45,ROYAL,Royal Hali Iplik Tekstil Mobilya San. Tic. A.S.,islem_bazli,5,4100000,2019-11-01,2020-07-31,True,6,Tekstil/mobilya hissesinde manipulasyon tespiti.,273,2020
+2020-12-17,2020/51,ALCAR,Alarko Carrier Sanayi ve Ticaret A.S.,bilgi_bazli,2,2100000,2020-01-01,2020-06-30,False,0,Bilgi bazli manipulasyon. Finansal tablo aciklamasi oncesi alim.,181,2020
+2021-01-21,2021/03,BRMEN,Birlik Mensucat Ticaret ve Sanayi A.S.,islem_bazli,6,4750000,2020-02-01,2020-10-31,True,6,Tekstil hissesinde Covid donemi manipulasyonu.,273,2021
+2021-03-18,2021/12,DOHOL,Dogan Sirketler Grubu Holding A.S.,bilgi_bazli,2,3800000,2020-04-01,2020-12-31,False,0,Ici bilgi ile islem yapma. Holding yapilanmasina iliskin karar oncesi alim.,274,2021
+2021-04-08,2021/15,INTEM,Intem Dis Ticaret A.S.,islem_bazli,3,2350000,2020-07-01,2021-01-31,True,6,Dis ticaret hissesinde koordineli islem.,214,2021
+2021-05-13,2021/20,EKGYO,Emlak Konut Gayrimenkul Yatirim Ortakligi A.S.,bilgi_bazli,3,4500000,2020-05-01,2020-12-31,False,0,Ici bilgi ile islem. Arsa satis aciklamasi oncesi alim tespiti.,244,2021
+2021-06-24,2021/26,KONKA,Konya Kagit Sanayi ve Ticaret A.S.,islem_bazli,2,1950000,2020-09-01,2021-02-28,False,0,Kagit sektoru hissesinde koordineli islem.,180,2021
+2021-07-15,2021/29,TUKAS,Tukas Gida Sanayi ve Ticaret A.S.,islem_bazli,4,3600000,2020-10-01,2021-05-31,True,6,Gida sektoru hissesinde islem bazli manipulasyon.,242,2021
+2021-08-19,2021/34,LINK,Link Bilgisayar Sistemleri Yazilim ve Donanim A.S.,islem_bazli,4,6400000,2020-08-01,2021-04-30,True,6,Teknoloji hissesinde fiyat manipulasyonu.,272,2021
+2021-09-16,2021/38,PGSUS,Pegasus Hava Tasimaciligi A.S.,bilgi_bazli,2,5100000,2020-10-01,2021-04-30,False,0,Ici bilgi kullanimi. Ucus bilgileri ile ilgili kamuya aciklanmamis bilgi.,211,2021
+2021-10-14,2021/42,SUMAS,Summa Turizm Yatirimciligi A.S.,islem_bazli,3,2850000,2020-06-01,2021-03-31,True,6,Covid sonrasi turizm rallisinde yapay fiyat hareketi tespiti.,303,2021
+2021-11-25,2021/48,ARENA,Arena Bilgisayar Sanayi ve Ticaret A.S.,islem_bazli,3,5700000,2020-11-01,2021-07-31,True,6,Teknoloji hissesinde islem bazli manipulasyon tespiti.,272,2021
+2022-02-10,2022/06,CELHA,Celik Halat ve Tel Sanayi A.S.,islem_bazli,4,6100000,2021-02-01,2021-10-31,True,6,Dusuk islem hacimli hissede koordineli alim-satim tespiti.,272,2022
+2022-03-10,2022/10,SRVGY,Servet Gayrimenkul Yatirim Ortakligi A.S.,islem_bazli,3,3900000,2021-01-01,2021-09-30,True,6,GYO hissesinde koordineli islem bazli manipulasyon.,272,2022
+2022-04-14,2022/16,ISGSY,Is Girisim Sermayesi Yatirim Ortakligi A.S.,islem_bazli,4,12300000,2021-01-15,2021-11-30,True,12,Koordineli alim-satim yoluyla fiyat manipulasyonu.,319,2022
+2022-05-19,2022/21,NTHOL,Net Holding A.S.,islem_bazli,6,15600000,2021-04-01,2022-01-31,True,12,Holding hissesinde genis capli koordineli islem aginin tespiti. Birden fazla hesap grubu kullanilmis.,305,2022
+2022-06-09,2022/24,TRILC,Turk Ilac ve Serum Sanayi A.S.,islem_bazli,4,7350000,2021-03-01,2021-12-31,True,6,Ilac sektoru hissesinde islem bazli manipulasyon.,305,2022
+2022-07-21,2022/30,MTRKS,Matreks Bilgi Dagitim Hizmetleri A.S.,islem_bazli,3,4600000,2021-05-01,2022-01-31,True,6,Islem bazli manipulasyon. Dusuk hacimli hissede yapay fiyat olusumu.,275,2022
+2022-08-11,2022/33,KARSN,Karsan Otomotiv Sanayii ve Ticaret A.S.,piyasa_bozucu,3,4200000,2021-06-01,2022-02-28,False,0,Piyasa bozucu eylemler. EV haberleri etrafinda manipulatif islemler.,272,2022
+2022-09-08,2022/37,ISSEN,Is Yatirim Menkul Degerler A.S.,bilgi_bazli,2,3450000,2021-09-01,2022-03-31,False,0,Bilgi bazli manipulasyon; ici bilgi ticareti tespiti.,211,2022
+2022-11-17,2022/47,ENJSA,Enerjisa Enerji A.S.,bilgi_bazli,3,5200000,2021-07-01,2022-03-31,False,0,Ici bilgi kullanimi tespiti. Ozel durum aciklamasi oncesi alimlarin yapildigi belirlendi.,273,2022
+2022-12-08,2022/50,YGYO,Yesil Gayrimenkul Yatirim Ortakligi A.S.,islem_bazli,5,8200000,2021-12-01,2022-08-31,True,12,GYO hissesinde koordineli islem bazli manipulasyon.,273,2022
+2023-01-19,2023/03,DGATE,Datagate Bilgisayar Malzemeleri Ticaret A.S.,islem_bazli,6,9800000,2021-11-01,2022-08-31,True,6,Kucuk sermayeli hissede koordineli islem tespiti.,303,2023
+2023-02-16,2023/07,PAPIL,Papilon Savunma Sanayi A.S.,islem_bazli,5,14200000,2022-01-01,2022-10-31,True,12,Savunma sektoru hissesinde yapay talep olusturma ile fiyat manipulasyonu.,303,2023
+2023-03-09,2023/10,ESCAR,Escar Filo Kiralama A.S.,islem_bazli,18,42500000,2021-06-01,2022-09-30,True,18,18 kisi hakkinda islem bazli manipulasyon karari. Genis capli koordineli islem aginin tespiti.,486,2023
+2023-04-06,2023/15,OSMEN,Osmanli Menkul Degerler A.S. (Osmanli Yatirim),islem_bazli,7,22100000,2021-08-01,2022-12-31,True,12,Koordineli hesap grubu ile manipulasyon. Yuksek ceza miktari.,517,2023
+2023-05-18,2023/21,VKFYO,Vakif Menkul Kiymet Yatirim Ortakligi A.S.,islem_bazli,2,17700000,2022-03-01,2022-12-31,True,12,Iki kisi koordineli alim-satim islemleri ile fiyat manipulasyonu. SPK bulteni 2023/21 ile duyuruldu.,305,2023
+2023-06-22,2023/26,DESPC,Destek Yatirim Menkul Degerler A.S. (Destek Finansman),islem_bazli,5,8870000,2021-10-01,2023-01-31,True,12,"Inceleme doneminde hisse yaklasik %1500 getiri sagladi. SPK, fiyat yapay olarak yukselttikten sonra satisa gecildigini tespit etti.",487,2023
+2023-07-13,2023/29,PKART,Plastikkart Akilli Kart Iletisim Sistemleri A.S.,islem_bazli,8,31400000,2022-02-01,2023-01-31,True,18,Genis hesap grubu ile koordineli islem. Yuksek hacim artisi ve fiyat hareketleri manipulasyon gostergesi olarak tespit edildi.,364,2023
+2023-08-10,2023/35,BJKAS,Besiktas Futbol Yatirimlari Sanayi ve Ticaret A.S.,islem_bazli,9,615000000,2021-01-01,2022-06-30,True,24,Hisse fiyati ~4 TL'den ~90 TL'ye yukseldi. SPK tarihi rekor ceza. Koordineli islemlerle fiyat yapay olarak sisirilerek kucuk yatirimcilar zarara ugratildi.,545,2023
+2023-09-14,2023/38,SAYAS,Say Yenilenebilir Enerji Ekipmanlari San. Tic. A.S.,islem_bazli,6,18900000,2022-04-01,2023-03-31,True,12,Yenilenebilir enerji hissesinde koordineli islem ve yapay fiyat olusumu.,364,2023
+2023-10-05,2023/41,SOKM,Sok Marketler Ticaret A.S.,bilgi_bazli,2,6800000,2022-11-01,2023-07-31,False,0,Ici bilgi kullanimi; ceyreklik sonuclar aciklanmadan once alim.,272,2023
+2023-11-09,2023/46,FONET,Fonet Bilgi Teknolojileri A.S.,islem_bazli,4,11250000,2022-07-01,2023-05-31,True,12,Teknoloji hissesinde islem bazli manipulasyon ve yapay talep olusumu.,334,2023
+2023-12-07,2023/50,GENIL,Gen Ilac ve Saglik Urunleri Sanayi ve Ticaret A.S.,islem_bazli,5,13700000,2022-08-01,2023-06-30,True,12,Ilac/saglik sektoru hissesinde fiyat manipulasyonu.,333,2023
+2024-01-11,2024/02,MPARK,MLP Saglik Hizmetleri A.S.,bilgi_bazli,3,7500000,2023-02-01,2023-10-31,False,0,Saglik sektoru hissesinde ici bilgi ile islem.,272,2024
+2024-02-08,2024/06,AVTUR,Avrasya Petrol ve Turistik Tesisler Yatirim A.S.,islem_bazli,7,28500000,2022-09-01,2023-08-31,True,18,Kucuk sermayeli hissede genis capli fiyat manipulasyonu.,364,2024
+2024-03-14,2024/11,MIATK,Mia Teknoloji A.S.,islem_bazli,10,35600000,2022-10-01,2023-09-30,True,24,Teknoloji hissesinde 10 kisilik genis manipulasyon agi. Coklu hesap kullanimi ve koordineli alim-satim.,364,2024
+2024-05-16,2024/21,HUBVC,Hub Girisim Sermayesi Yatirim Ortakligi A.S.,islem_bazli,5,19800000,2023-01-01,2023-11-30,True,12,Girisim sermayesi hissesinde yapay fiyat hareketi ve koordineli islem.,333,2024
+2024-07-18,2024/30,KFEIN,Kafein Yazilim Hizmetleri Ticaret A.S.,islem_bazli,4,16300000,2023-03-01,2024-02-29,True,12,Yazilim sektoru hissesinde koordineli islem manipulasyonu.,365,2024
+2024-09-12,2024/38,BEYAZ,Beyaz Filo Oto Kiralama A.S.,islem_bazli,4,21300000,2023-05-01,2024-04-30,True,12,Filo kiralama hissesinde koordineli manipulasyon.,365,2024
+2024-11-14,2024/47,SANFM,Sanel Muhendislik Elektrik Taahhut San. Tic. A.S.,islem_bazli,8,26700000,2023-06-01,2024-05-31,True,18,Muhendislik hissesinde genis manipulasyon agi tespiti.,365,2024
+2025-01-09,2025/02,SMART,Smartiks Yazilim A.S.,islem_bazli,6,22400000,2023-09-01,2024-08-31,True,18,Yazilim/teknoloji hissesinde genis capli koordineli manipulasyon.,365,2025
+2025-03-06,2025/10,KARTN,Kartonsan Karton Sanayi ve Ticaret A.S.,islem_bazli,3,8100000,2024-01-01,2024-11-30,True,6,Karton/ambalaj sektoru hissesinde fiyat manipulasyonu.,334,2025
