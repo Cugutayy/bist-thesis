@@ -21,7 +21,7 @@ st.title("Dimension 2: SPK Manipulation Analysis")
 st.info(
     "**What is this page about?**\n\n"
     "Turkey's Capital Markets Board (SPK) investigates and penalizes market manipulation "
-    "in Borsa Istanbul. This page analyzes **50 manipulation cases** from 2020-2025 and asks: "
+    "in Borsa Istanbul. This page analyzes **47 verified manipulation cases** from 2020-2025 and asks: "
     "*Can we detect abnormal price patterns (pump-and-dump) around the time these penalties "
     "were announced?*\n\n"
     "We use **Event Study methodology** (MacKinlay, 1997) to measure whether stock prices "
@@ -209,7 +209,7 @@ st.info(
 
 # ─── AGGREGATE EVENT STUDY (most important - show first) ──
 if event_results is not None:
-    st.markdown("#### Aggregate Results: Average Pattern Across All 48 Stocks")
+    st.markdown("#### Aggregate Results: Average Pattern Across All Penalized Stocks")
     st.caption(
         "This is the average price behavior across ALL manipulation cases combined. "
         "The red line (CAAR) shows the cumulative average abnormal return over time. "
@@ -337,10 +337,11 @@ if es_ind_file.exists():
 
 # ─── Individual Case Explorer ─────────────────────────────
 st.markdown("---")
-st.markdown("### Case Explorer: Examine a Specific Stock")
+st.markdown("### Case Explorer: Stock vs Market Comparison")
 st.caption(
-    "Select a specific manipulation case below to see the stock's price chart around the penalty date. "
-    "The red dashed line marks when SPK announced the penalty. The shaded area shows the investigation period."
+    "Select a manipulation case to compare the stock's price and volume against the **BIST-100 index**. "
+    "This reveals whether the price drop was **stock-specific** (manipulation-related) or a **market-wide** move. "
+    "The investigation period (orange shading) shows the dates SPK flagged for suspicious trading activity."
 )
 
 selected_stock = st.selectbox(
@@ -366,6 +367,19 @@ if selected_stock:
     with detail_cols[4]:
         st.metric("Type", case.get('ceza_turu', 'N/A'))
 
+    # Show notes about the case
+    if pd.notna(case.get("notes")):
+        with st.expander("📋 Case details (click to expand)"):
+            st.write(case['notes'])
+            if pd.notna(case.get("inceleme_baslangic")):
+                inv_days = case.get("inceleme_suresi_gun", "?")
+                st.write(
+                    f"**Investigation period:** {str(case['inceleme_baslangic'])[:10]} → "
+                    f"{str(case['inceleme_bitis'])[:10]} ({inv_days} days)\n\n"
+                    f"SPK examined this period for evidence of coordinated trading, artificial price/demand creation, "
+                    f"or insider trading. The investigation dates come from SPK's official penalty bulletins."
+                )
+
     # Show pre-computed CAR for this stock if available
     if es_ind_file.exists():
         esi_all = pd.read_csv(es_ind_file)
@@ -374,32 +388,55 @@ if selected_stock:
             car_val = stock_car.iloc[0]["car"]
             t_val = stock_car.iloc[0]["t_stat"]
             p_val = stock_car.iloc[0]["t_pvalue"]
-            sig_text = "Significant" if p_val < 0.05 else "Not significant"
+            sig_text = "✓ Significant" if p_val < 0.05 else "✗ Not significant"
             if car_val < 0:
                 st.error(
-                    f"**Event Study Result for {selected_stock}:** CAR = **{car_val:.1%}** "
-                    f"(t = {t_val:.2f}, p = {p_val:.4f}) - {sig_text}. "
-                    f"This stock lost {abs(car_val):.1%} more than expected around the penalty."
+                    f"**Event Study Result:** CAR = **{car_val:.1%}** "
+                    f"(t = {t_val:.2f}, p = {p_val:.4f}) — {sig_text}. "
+                    f"This stock lost {abs(car_val):.1%} more than the market model predicted."
                 )
             else:
                 st.warning(
-                    f"**Event Study Result for {selected_stock}:** CAR = **{car_val:.1%}** "
-                    f"(t = {t_val:.2f}, p = {p_val:.4f}) - {sig_text}. "
-                    f"This stock actually gained value around the penalty period."
+                    f"**Event Study Result:** CAR = **{car_val:.1%}** "
+                    f"(t = {t_val:.2f}, p = {p_val:.4f}) — {sig_text}. "
+                    f"This stock gained value around the penalty period."
                 )
 
-    # Load cached price data
+    # Load cached price data and BIST-100
     price_cache_file = config.PROCESSED_DIR / "spk_price_cache.csv"
+    bist100_file = config.PROCESSED_DIR / "bist100_data.csv"
+
     if price_cache_file.exists():
         price_cache = pd.read_csv(price_cache_file, parse_dates=["Date"])
         stock_data = price_cache[price_cache["ticker"] == selected_stock].copy()
 
+        # Load BIST-100 data
+        bist_data = None
+        if bist100_file.exists():
+            bist_data = pd.read_csv(bist100_file, parse_dates=["date"])
+            bist_data = bist_data.rename(columns={"date": "Date", "bist100_close": "BIST100"})
+
         if len(stock_data) > 0:
             stock_data = stock_data.sort_values("Date").reset_index(drop=True)
-            # Convert event_date to string for plotly compatibility
             event_date_str = str(pd.Timestamp(case["karar_tarihi"]).strftime("%Y-%m-%d"))
+            event_date_ts = pd.Timestamp(case["karar_tarihi"])
 
-            fig = go.Figure()
+            # Prepare investigation period timestamps
+            inv_start_ts = pd.Timestamp(case["inceleme_baslangic"]) if pd.notna(case.get("inceleme_baslangic")) else None
+            inv_end_ts = pd.Timestamp(case["inceleme_bitis"]) if pd.notna(case.get("inceleme_bitis")) else None
+
+            # ═══════════════════════════════════════════
+            # COMBINED CHART: 3 rows — Price+BIST | Volume | Normalized
+            # ═══════════════════════════════════════════
+            fig = make_subplots(
+                rows=3, cols=1,
+                shared_xaxes=True,
+                vertical_spacing=0.04,
+                row_heights=[0.50, 0.22, 0.28],
+                specs=[[{"secondary_y": True}], [{}], [{}]],
+            )
+
+            # ── Row 1: Candlestick + BIST-100 ──
             fig.add_trace(go.Candlestick(
                 x=stock_data["Date"],
                 open=stock_data["Open"],
@@ -407,63 +444,218 @@ if selected_stock:
                 low=stock_data["Low"],
                 close=stock_data["Close"],
                 name=selected_stock,
-            ))
+                increasing_line_color="#26a69a",
+                decreasing_line_color="#ef5350",
+                increasing_fillcolor="#26a69a",
+                decreasing_fillcolor="#ef5350",
+                increasing_line_width=0.8,
+                decreasing_line_width=0.8,
+                whiskerwidth=0.3,
+            ), row=1, col=1, secondary_y=False)
 
-            # Mark event date (use string to avoid plotly Timestamp arithmetic bug)
-            fig.add_shape(type="line", x0=event_date_str, x1=event_date_str,
-                         y0=0, y1=1, yref="paper",
-                         line=dict(dash="dash", color="red", width=2))
-            fig.add_annotation(x=event_date_str, y=1.05, yref="paper",
-                             text="SPK Penalty", showarrow=False,
-                             font=dict(color="red", size=12))
+            # BIST-100 overlay on secondary y-axis
+            bist_period = pd.DataFrame()
+            if bist_data is not None:
+                date_min = stock_data["Date"].min()
+                date_max = stock_data["Date"].max()
+                bist_period = bist_data[(bist_data["Date"] >= date_min) & (bist_data["Date"] <= date_max)].copy()
+                if len(bist_period) > 0:
+                    fig.add_trace(go.Scatter(
+                        x=bist_period["Date"],
+                        y=bist_period["BIST100"],
+                        name="BIST-100 Index",
+                        line=dict(color="#1976d2", width=1.8, dash="dot"),
+                        opacity=0.65,
+                    ), row=1, col=1, secondary_y=True)
 
-            # Mark investigation period
-            if pd.notna(case.get("inceleme_baslangic")):
-                inv_start = str(pd.Timestamp(case["inceleme_baslangic"]).strftime("%Y-%m-%d"))
-                inv_end = str(pd.Timestamp(case["inceleme_bitis"]).strftime("%Y-%m-%d"))
-                fig.add_vrect(
-                    x0=inv_start, x1=inv_end,
-                    fillcolor="rgba(255,0,0,0.1)", line_width=0,
-                    annotation_text="Investigation Period",
+            # ── Row 2: Volume with color coding ──
+            if "Volume" in stock_data.columns:
+                vol_data = stock_data[stock_data["Volume"].notna()].copy()
+                if len(vol_data) > 0:
+                    penalty_window_start = event_date_ts - pd.Timedelta(days=7)
+                    penalty_window_end = event_date_ts + pd.Timedelta(days=7)
+
+                    vol_colors = []
+                    for d in vol_data["Date"]:
+                        if penalty_window_start <= d <= penalty_window_end:
+                            vol_colors.append("#ef5350")       # red = around penalty
+                        elif inv_start_ts and inv_end_ts and inv_start_ts <= d <= inv_end_ts:
+                            vol_colors.append("#ff9800")       # orange = investigation
+                        else:
+                            vol_colors.append("#b0bec5")       # grey = normal
+                    fig.add_trace(go.Bar(
+                        x=vol_data["Date"],
+                        y=vol_data["Volume"],
+                        name="Volume",
+                        marker_color=vol_colors,
+                        showlegend=False,
+                    ), row=2, col=1)
+
+                    # Average volume reference line
+                    avg_vol = vol_data["Volume"].mean()
+                    fig.add_hline(
+                        y=avg_vol, row=2, col=1,
+                        line_dash="dot", line_color="#78909c", line_width=1,
+                        annotation_text=f"Avg: {avg_vol/1e6:.1f}M" if avg_vol >= 1e6 else f"Avg: {avg_vol/1e3:.0f}K",
+                        annotation_position="top right",
+                        annotation_font_size=9, annotation_font_color="#78909c",
+                    )
+
+            # ── Row 3: Normalized performance (base = 100) ──
+            stock_norm = stock_data[["Date", "Close"]].copy()
+            base_price = stock_norm["Close"].iloc[0]
+            stock_norm["Normalized"] = (stock_norm["Close"] / base_price) * 100
+
+            fig.add_trace(go.Scatter(
+                x=stock_norm["Date"], y=stock_norm["Normalized"],
+                name=f"{selected_stock} (indexed)",
+                line=dict(color="#ef5350", width=2.2),
+            ), row=3, col=1)
+
+            if len(bist_period) > 0:
+                bist_norm = bist_period[["Date", "BIST100"]].copy()
+                bist_base = bist_norm["BIST100"].iloc[0]
+                bist_norm["Normalized"] = (bist_norm["BIST100"] / bist_base) * 100
+                fig.add_trace(go.Scatter(
+                    x=bist_norm["Date"], y=bist_norm["Normalized"],
+                    name="BIST-100 (indexed)",
+                    line=dict(color="#1976d2", width=2.2),
+                ), row=3, col=1)
+
+                # Shade divergence area between the two lines
+                merged = pd.merge(
+                    stock_norm[["Date", "Normalized"]].rename(columns={"Normalized": "stock"}),
+                    bist_norm[["Date", "Normalized"]].rename(columns={"Normalized": "bist"}),
+                    on="Date", how="inner"
+                )
+                if len(merged) > 0:
+                    fig.add_trace(go.Scatter(
+                        x=merged["Date"], y=merged["stock"],
+                        fill=None, mode="lines", line=dict(width=0),
+                        showlegend=False, hoverinfo="skip",
+                    ), row=3, col=1)
+                    fig.add_trace(go.Scatter(
+                        x=merged["Date"], y=merged["bist"],
+                        fill="tonexty", fillcolor="rgba(239,83,80,0.10)",
+                        mode="lines", line=dict(width=0),
+                        showlegend=False, hoverinfo="skip",
+                    ), row=3, col=1)
+
+            fig.add_hline(y=100, row=3, col=1, line_dash="dot", line_color="#bdbdbd", line_width=1)
+
+            # ── Shared annotations: penalty line + investigation shading ──
+            for row_n in [1, 2, 3]:
+                fig.add_vline(
+                    x=event_date_str, row=row_n, col=1,
+                    line_dash="dash", line_color="#d32f2f", line_width=1.5,
+                )
+                if inv_start_ts:
+                    inv_start_str = str(inv_start_ts.strftime("%Y-%m-%d"))
+                    inv_end_str = str(inv_end_ts.strftime("%Y-%m-%d"))
+                    fig.add_vrect(
+                        x0=inv_start_str, x1=inv_end_str,
+                        fillcolor="rgba(255,152,0,0.07)", line_width=0,
+                        row=row_n, col=1,
+                    )
+
+            # Annotations on row 1 only
+            fig.add_annotation(
+                x=event_date_str, y=1.04, yref="y domain", xref="x",
+                text="⚖️ SPK Penalty", showarrow=False,
+                font=dict(color="#d32f2f", size=11),
+            )
+            if inv_start_ts:
+                fig.add_annotation(
+                    x=str(inv_start_ts.strftime("%Y-%m-%d")), y=0.95, yref="y domain", xref="x",
+                    text="🔍 Investigation Period", showarrow=True,
+                    arrowhead=0, arrowwidth=1, arrowcolor="#ff9800",
+                    ax=60, ay=-20, font=dict(color="#e65100", size=10),
                 )
 
+            # ── Layout polish ──
             fig.update_layout(
                 template=config.DASHBOARD_THEME,
-                title=f"{selected_stock} Price Around SPK Penalty",
-                yaxis_title="Price (TL)",
+                height=820,
+                showlegend=True,
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.02,
+                    xanchor="center", x=0.5, font=dict(size=10),
+                ),
+                margin=dict(t=50, b=30, l=60, r=60),
                 xaxis_rangeslider_visible=False,
-                height=450,
+                xaxis3_rangeslider_visible=False,
             )
-            st.plotly_chart(fig, use_container_width=True)
-            st.caption(
-                "Candlestick chart showing the stock's price movement. Green candles = price went up that day, "
-                "red candles = price went down. The red dashed line is the penalty announcement date. "
-                "The pink shaded area is the period SPK investigated."
-            )
+            fig.update_yaxes(title_text="Price (TL)", title_font_size=10, row=1, col=1, secondary_y=False)
+            fig.update_yaxes(title_text="BIST-100", title_font_size=10, row=1, col=1, secondary_y=True,
+                             showgrid=False)
+            fig.update_yaxes(title_text="Volume", title_font_size=10, row=2, col=1)
+            fig.update_yaxes(title_text="Indexed (base=100)", title_font_size=10, row=3, col=1)
 
-            # Volume chart
+            st.plotly_chart(fig, use_container_width=True)
+
+            # ── Legend explanation ──
+            leg1, leg2, leg3 = st.columns(3)
+            with leg1:
+                st.markdown(
+                    "🟢🔴 **Candlestick** — stock price  \n"
+                    "🔵 **Blue dotted** — BIST-100 index  \n"
+                    "⚖️ **Red dashed** — penalty date"
+                )
+            with leg2:
+                st.markdown(
+                    "🟠 **Orange bars** — volume during investigation  \n"
+                    "🔴 **Red bars** — volume around penalty (±7 days)  \n"
+                    "⬜ **Grey bars** — normal trading volume"
+                )
+            with leg3:
+                st.markdown(
+                    "📊 **Bottom panel** — both series indexed to 100  \n"
+                    "If stock (red) drops below BIST-100 (blue) →  \n"
+                    "the drop is **stock-specific**, not market-wide"
+                )
+
+            # ── Volume analysis summary ──
             if "Volume" in stock_data.columns:
-                vol_data = stock_data[stock_data["Volume"].notna()]
-                if len(vol_data) > 0:
-                    fig_vol = px.bar(
-                        vol_data, x="Date", y="Volume",
-                        labels={"Date": "Date", "Volume": "Volume"},
-                        color_discrete_sequence=[config.COLOR_PALETTE["manipulation"]],
-                    )
-                    fig_vol.add_shape(type="line", x0=event_date_str, x1=event_date_str,
-                                    y0=0, y1=1, yref="paper",
-                                    line=dict(dash="dash", color="red", width=2))
-                    fig_vol.update_layout(template=config.DASHBOARD_THEME, title="Trading Volume", height=300)
-                    st.plotly_chart(fig_vol, use_container_width=True)
-                    st.caption(
-                        "Trading volume (number of shares traded per day). Spikes in volume often occur around "
-                        "the manipulation period and the penalty announcement as investors react to the news."
-                    )
+                vol_notnull = stock_data[stock_data["Volume"].notna()]
+                if len(vol_notnull) > 5 and inv_start_ts and inv_end_ts:
+                    pre_inv = vol_notnull[vol_notnull["Date"] < inv_start_ts]["Volume"]
+                    during_inv = vol_notnull[(vol_notnull["Date"] >= inv_start_ts) & (vol_notnull["Date"] <= inv_end_ts)]["Volume"]
+                    around_penalty = vol_notnull[
+                        (vol_notnull["Date"] >= event_date_ts - pd.Timedelta(days=7)) &
+                        (vol_notnull["Date"] <= event_date_ts + pd.Timedelta(days=7))
+                    ]["Volume"]
+                    post_penalty = vol_notnull[vol_notnull["Date"] > event_date_ts]["Volume"]
+
+                    st.markdown("##### Volume Analysis")
+                    vc1, vc2, vc3, vc4 = st.columns(4)
+
+                    def fmt_vol(v):
+                        return f"{v/1e6:.2f}M" if v >= 1e6 else f"{v/1e3:.0f}K"
+
+                    with vc1:
+                        if len(pre_inv) > 0:
+                            st.metric("Pre-Investigation Avg", fmt_vol(pre_inv.mean()))
+                    with vc2:
+                        if len(during_inv) > 0:
+                            st.metric("During Investigation Avg", fmt_vol(during_inv.mean()))
+                    with vc3:
+                        if len(around_penalty) > 0:
+                            st.metric("Penalty Week Avg", fmt_vol(around_penalty.mean()))
+                    with vc4:
+                        if len(during_inv) > 0 and len(pre_inv) > 0 and pre_inv.mean() > 0:
+                            vol_change = (during_inv.mean() / pre_inv.mean() - 1) * 100
+                            direction = "Higher" if vol_change > 0 else "Lower"
+                            st.metric(
+                                "Investigation vs Pre",
+                                f"{vol_change:+.0f}%",
+                                delta=f"{direction} during manipulation period",
+                                delta_color="inverse",
+                            )
+
         else:
             st.warning(
                 f"Price data for **{selected_stock}** is not available in the cache. "
-                f"This stock may have been delisted or the ticker symbol may differ. "
-                f"The event study results above (CAR) were calculated from data collected earlier."
+                f"This stock may have been delisted or the ticker symbol may differ."
             )
     else:
         st.info(
