@@ -376,49 +376,65 @@ else:
     st.warning("Post-tavan contrarian results not available. Run: `python scripts/rerun_contrarian.py`")
 
 # ─── Sector Analysis ────────────────────────────────────
-if "sector" in filtered.columns and first_day_col:
-    st.markdown("---")
-    st.markdown("### IPO Performance by Sector")
-    st.caption(
-        "Which sectors had the highest underpricing (tavan series return)? The color intensity shows the number of IPOs. "
-        "Sectors with fewer IPOs may have less reliable statistics."
-    )
+# Sector data comes from Yahoo Finance (ipo_pe_analysis.csv), not ipo_dataset.csv
+st.markdown("---")
+st.markdown("### IPO Performance by Sector")
+st.caption(
+    "Which sectors had the highest underpricing (tavan series return)? "
+    "Sectors are sourced from Yahoo Finance classification. "
+    "Color intensity shows the number of IPOs — sectors with fewer IPOs may have less reliable statistics."
+)
 
-    sector_stats = filtered.groupby("sector").agg(
-        count=("ticker", "size"),
-        avg_return=(first_day_col, "mean"),
-        avg_oversub=("oversubscription_ratio", "mean") if "oversubscription_ratio" in filtered.columns else ("ticker", "size"),
-    ).reset_index().sort_values("avg_return", ascending=False)
+_pe_sector_file = config.PROCESSED_DIR / "ipo_pe_analysis.csv"
+if _pe_sector_file.exists() and first_day_col:
+    _pe_df = pd.read_csv(_pe_sector_file)
+    # Merge sector_yf into filtered data
+    _sector_merged = filtered.merge(
+        _pe_df[["ticker", "sector_yf"]].dropna(subset=["sector_yf"]),
+        on="ticker", how="inner",
+    )
+    if len(_sector_merged) > 0 and "sector_yf" in _sector_merged.columns:
+        sector_stats = _sector_merged.groupby("sector_yf").agg(
+            count=("ticker", "size"),
+            avg_return=(first_day_col, "mean"),
+        ).reset_index().sort_values("avg_return", ascending=False)
 
-    fig = px.bar(
-        sector_stats, x="sector", y="avg_return",
-        color="count", color_continuous_scale="viridis",
-        text=sector_stats["avg_return"].apply(lambda x: f"{x:.0%}"),
-        labels={
-            "avg_return": "Average Underpricing",
-            "count": "Number of IPOs",
-            "sector": "Sector",
-        },
-    )
-    fig.update_layout(
-        template=config.DASHBOARD_THEME,
-        xaxis_title="Sector",
-        yaxis_title="Average Underpricing",
-        yaxis_tickformat=".0%",
-        height=450,
-    )
-    st.plotly_chart(fig, use_container_width=True)
+        fig = px.bar(
+            sector_stats, x="sector_yf", y="avg_return",
+            color="count", color_continuous_scale="viridis",
+            text=sector_stats["avg_return"].apply(lambda x: f"{x:.0%}"),
+            labels={
+                "avg_return": "Average Underpricing",
+                "count": "Number of IPOs",
+                "sector_yf": "Sector (Yahoo Finance)",
+            },
+        )
+        fig.update_layout(
+            template=config.DASHBOARD_THEME,
+            xaxis_title="Sector",
+            yaxis_title="Average Underpricing",
+            yaxis_tickformat=".0%",
+            height=450,
+            xaxis_tickangle=-35,
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("Sector data not available for the selected filter.")
+else:
+    st.info("Sector analysis requires ipo_pe_analysis.csv. Run: `python scripts/analyze_pe_ratios.py`")
 
 # ─── P/E (F/K) Ratio Analysis ──────────────────────────
 st.markdown("---")
 st.markdown("### Fundamental Valuation: P/E (F/K) Ratio Analysis")
 st.info(
     "**Are IPOs underpriced because of fundamentals?**\n\n"
-    "The P/E (Price-to-Earnings, Fiyat/Kazanç) ratio measures how 'expensive' a stock is relative to its earnings. "
-    "Low P/E = 'cheap' stock, High P/E = growth expectations priced in.\n\n"
-    "If underpricing is explained by fundamentals (low P/E → high underpricing), "
+    "The F/K (Fiyat/Kazanç, P/E) ratio measures how 'expensive' a stock is relative to its earnings. "
+    "Low F/K = 'cheap' stock, High F/K = growth expectations priced in.\n\n"
+    "If underpricing is explained by fundamentals (low F/K → high underpricing), "
     "this supports the 'mispricing' hypothesis. If there's NO correlation, "
-    "underpricing may be driven by **supply-demand dynamics** (behavioral) rather than fundamental value."
+    "underpricing may be driven by **supply-demand dynamics** (behavioral) rather than fundamental value.\n\n"
+    "**Note:** F/K values shown here are **current trailing P/E** from Yahoo Finance, not F/K at the time of IPO. "
+    "This is a limitation — ideally we would use IPO-time valuations."
 )
 
 pe_file = config.PROCESSED_DIR / "ipo_pe_analysis.csv"
