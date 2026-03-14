@@ -1,0 +1,468 @@
+DOKUZ EYLUL UNIVERSITY
+FACULTY OF ECONOMICS AND ADMINISTRATIVE SCIENCES
+Department of Economics
+IPO Fever and the Cost of the Crowd:
+Underpricing, Herding, and Market Manipulation
+in Borsa Istanbul IPOs, 2020–2025
+Graduation Thesis
+Salih Çağatay Sönmez
+2021431045
+2026
+
+# 1. Introduction
+This study examines three interconnected dimensions of initial public offering (IPO) markets in Borsa Istanbul (BIST) during the 2020–2025 period: systematic underpricing, investor herding behaviour, and the price effects of regulatory enforcement against market manipulation. Turkey experienced an unprecedented IPO boom in this period, with 209 companies going public while the economy simultaneously endured extreme inflation (peaking at 85.5% year-over-year in October 2022), sharp currency depreciation, and heightened retail investor participation. These conditions create a natural laboratory for testing whether behavioural anomalies documented in developed markets also manifest—and potentially amplify—in an emerging market setting characterised by high uncertainty and information asymmetry.
+The central contribution of this thesis is methodological. BIST imposes a ±10% daily price limit on equities, which means that conventional first-day return measures systematically understate true IPO underpricing whenever an IPO hits the upper limit (tavan) on its first trading day. We introduce a consecutive daily limit-up methodology—locally known as tavan serisi (literally ‘ceiling series’)—that measures underpricing as the cumulative return from the IPO-day close to the first day on which the stock trades freely (that is, does not hit the daily price limit). This measurement follows the approach described by Loughran et al. (1994) for markets with binding daily price limits, where initial returns are computed using the first closing price at which the limit is not binding. Following the terminology in the Chinese IPO literature (Wang et al., 2018), we define the limit-up streak length as the number of consecutive trading days on which the stock closes at the upper price limit. Using split-adjusted daily closing prices from Yahoo Finance for all 209 IPOs, we document that 67% of IPOs hit the upper limit on their first day, with an average streak of 4.4 consecutive limit-up days. The resulting mean underpricing is 67.8%—substantially higher than the 6.6% average first-day return that a naive single-day calculation would suggest.
+Our central research question is:
+RQ: To what extent is IPO underpricing in Borsa Istanbul explained by valuation signals and investor behaviour during the 2020–2025 IPO boom, and how do daily price limits shape the process of price discovery?
+This thesis builds on Information Asymmetry Theory (Rock, 1986; Benveniste and Spindt, 1989) and Behavioral Finance (De Bondt and Thaler, 1985; Chang et al., 2000). We investigate three sub-questions:
+SQ1 (Valuation Ratios): Do valuation ratios (P/E and P/B) influence IPO underpricing? We measure underpricing using the consecutive limit-up (tavan serisi) methodology and test whether cross-sectional variation is explained by fundamental firm characteristics. (Durukan, 2002; Ljungqvist, 2007; Rock, 1986)
+SQ2 (Investor Herding): Is there statistical evidence of investor herding during IPO trading periods? We employ the CSAD methodology of Chang et al. (2000) to test for non-linear return dispersion consistent with herding behavior. (Durukan et al., 2017; Cimen and Ergun, 2019)
+SQ3 (Market Conditions): Do market conditions (BIST performance, inflation, CPI) affect IPO underpricing outcomes? We examine post-tavan return dynamics, the inflation illusion via the Fisher equation, and the role of SPK enforcement actions as evidence of the speculative market environment. (De Bondt and Thaler, 1985; Ritter, 1991; Kiymaz, 2000)
+SPK regulatory enforcement actions are interpreted as contextual evidence of a speculative market environment rather than a primary explanatory variable. Turkey’s extreme inflation serves as a key control variable, applied via the Fisher equation to separate nominal from real IPO returns.
+The empirical results provide partial support. For SQ1, mean underpricing is 67.8% (t = 10.82, p < 0.001) using the consecutive limit-up methodology, with the price-to-book ratio as the only significant cross-sectional determinant (p = 0.040). For SQ2, CSAD analysis finds no statistically significant herding (γ2 = 0.645, p = 0.666), though the test has limited statistical power (Zhang, 2024). For SQ3, a short-term contrarian sell strategy yields −3.3% at 5 days (p = 0.021), consistent with post-IPO overreaction, while inflation substantially erodes nominal returns. SPK enforcement actions (47 cases, CAAR = −3.8%) confirm the speculative environment.
+Beyond its methodological contribution, this study offers a conceptual interpretation of the limit-up phenomenon. We argue that consecutive limit-up sessions represent a form of sequential price discovery: when daily price limits prevent a newly listed stock from reaching its equilibrium price on the first trading day, the price discovery process is spread across multiple sessions until the limit ceases to bind. This interpretation connects the tavan serisi to market microstructure theory on price limits and IPO price discovery (Wang et al., 2018; Loughran et al., 1994) and suggests that observed underpricing in price-limit markets partly reflects the regulatory constraint on price adjustment rather than purely initial mispricing by issuers.
+The remainder of this paper is organised as follows. Section 2 reviews the prior literature on IPO underpricing, herding, and market manipulation. Section 3 describes our data and methodology. Section 4 presents and discusses the results, including IPO underpricing (4.1), the contrarian strategy (4.2), SPK event study (4.3), CSAD herding analysis (4.4), cross-sectional determinants (4.5), and inflation effects (4.6). Section 5 concludes with policy implications.
+
+# 2. Prior Literature on IPO Underpricing and Investor Behaviour
+
+## 2.1 IPO Underpricing: Theory and Turkish Evidence
+IPO underpricing—the phenomenon where shares are offered below their first-trading-day market value—is one of the most robust findings in empirical finance. Rock (1986) provides the foundational theoretical explanation through the Winner’s Curse model: uninformed investors receive disproportionate allocations in overpriced IPOs because informed investors crowd into underpriced ones, so issuers must underprice to compensate uninformed investors for this adverse selection. Benveniste and Spindt (1989) extend this framework through the bookbuilding model, arguing that underpricing serves as compensation for informed investors who truthfully reveal their private information during the pricing process. Ritter (1991) documents the long-run underperformance of IPOs, suggesting that initial underpricing reflects temporary overvaluation driven by investor sentiment rather than a permanent equilibrium.
+For the Turkish market, Durukan (2002) analyses 173 IPOs on the Istanbul Stock Exchange during 1990–1997, reporting average underpricing of 14.16% and supporting the Winner’s Curse hypothesis. Durukan and Onder (2006) find a weak ownership–underpricing link. Kiymaz (2000) examines 163 ISE IPOs (1990–1996), finding 13.1% underpricing with firm size and market conditions as significant determinants. Bildik and Yilmaz (2008) document a median 21% underwriter discount. Ilbasmi (2023) analyses BIST IPOs during COVID-19, employing multi-day CARs to address the price-limit problem—the closest methodological precedent to our approach. Tanyeri et al. (2021) study 633 BIST IPOs (1990–2020), reporting approximately 5% underpricing for 2010–2020 and adjusting for binding price limits. Our study extends this work to 2020–2025, a period with substantially higher underpricing.
+Ljungqvist (2007) provides a comprehensive survey classifying underpricing theories into four categories: asymmetric information, institutional, ownership and control, and behavioural. Our study extends this literature in three ways: (i) we cover the most recent period (2020–2025) with 209 IPOs, (ii) we develop the consecutive limit-up methodology to fully capture underpricing in a ±10% price-limit environment, and (iii) we use split-adjusted prices from Yahoo Finance with three-source verification (halkarz.com, KAP, SPK) to ensure data accuracy.
+
+## 2.2 Herding Behaviour in Emerging Markets
+Herding occurs when investors suppress their own private information and follow the actions of others, leading to correlated trading patterns and potential mispricing. Chang et al. (2000; hereafter CCK) introduce the Cross-Sectional Absolute Deviation (CSAD) methodology, which detects herding through a non-linear relationship between market-wide return dispersion and the absolute market return. Under rational asset pricing, CSAD increases linearly with market stress; herding causes CSAD to increase at a decreasing rate (or decrease) during extreme market movements, captured by a significantly negative γ2 coefficient.
+Durukan et al. (2017) examine herding in BIST using a state-space model combined with the LSV herding measure, covering the 2006–2015 period. They find evidence of herding and note that foreign investors herd less during financial crises. Cimen and Ergun (2019) investigate herding in Turkish IPO markets specifically, using the CSSD (Cross-Sectional Standard Deviation) measure. They find no evidence of herding, though CSSD is a less powerful test than CSAD. Cagli et al. (2020) establish causal linkages between investor sentiment and excess returns on Borsa Istanbul, providing direct evidence that behavioural factors influence Turkish equity pricing. Mandaci and Cagli (2022) employ the Patterson-Sharma runs-based herding measure for cryptocurrency markets, demonstrating a link between herding intensity and volatility during COVID-19, but do not apply CSAD-based methods to BIST equities.
+Our study is the first to apply the CCK CSAD methodology specifically to BIST stock returns during IPO-intensive periods. We note the important limitation identified by Zhang (2024), who demonstrates that the statistical power of CSAD-based herding tests averages only 59.37%, which means that failure to reject the null hypothesis of no herding should be interpreted with caution.
+
+## 2.3 IPO Aftermarket Performance and the Overreaction Hypothesis
+De Bondt and Thaler (1985) propose the overreaction hypothesis: investors systematically overreact to dramatic news, causing past losers to outperform past winners over subsequent periods. Applied to IPOs, this implies that initial enthusiasm inflates prices above fundamental value, followed by a correction as the market reassesses. Ritter (1991) documents significant long-run underperformance of IPOs over three years, consistent with initial overvaluation. Loughran and Ritter (1995) further show that IPO investors earned only 5% annually over five years post-issue, dramatically below matched-firm benchmarks.
+In the Turkish context, the overreaction hypothesis is particularly relevant because the consecutive limit-up mechanism may amplify initial price distortions. When demand exceeds the daily limit for multiple consecutive days, the stock cannot reach equilibrium, and the artificially constrained supply may create the illusion of extreme scarcity. Once the limit-up streak ends and the stock trades freely, mean reversion should be expected if the streak prices exceeded fundamental value. Wang et al. (2018) provide evidence from the Chinese market that price limits distort the IPO price discovery process and generate abnormal return patterns in the aftermarket. Their findings motivate the concept of sequential price discovery: in markets with binding daily price limits, the equilibrium price of a newly listed stock may not be reached on the first trading day but instead emerges gradually across multiple sessions as the price limit is successively hit. Each consecutive limit-up day represents an incremental step in this process, with the true market-clearing price revealed only when the constraint ceases to bind. The tavan serisi observed in BIST—where the average IPO experiences 4.4 consecutive limit-up days before trading freely—is a direct manifestation of this mechanism. Sequential price discovery implies that conventional first-day return measures are inherently incomplete in price-limit markets, as they capture only the first step of a multi-day adjustment process.
+Kiymaz (2000) examines aftermarket performance of ISE IPOs and finds evidence consistent with this pattern. More recently, Ergun et al. (2023) examine the interconnectedness across risk appetite of distinct investor types in Borsa Istanbul, suggesting that investor risk appetite—a key driver of IPO demand—varies with broader market conditions.
+
+## 2.4 Market Manipulation and Regulatory Enforcement
+Turkey’s Capital Markets Board (Sermaye Piyasasi Kurulu, SPK) actively prosecutes market manipulation, primarily in two categories: transaction-based manipulation (islem bazli) involving coordinated trading to create artificial prices, and information-based manipulation (bilgi bazli) involving insider trading. MacKinlay (1997) provides the standard event study methodology for measuring abnormal returns around corporate events, which we adapt to measure the stock price impact of SPK penalty announcements. To our knowledge, no prior study has systematically examined the price effects of SPK manipulation penalties using a formal event study framework.
+Table 1. Summary of Key Prior Studies
+Study
+Sample
+Method
+Key Finding
+Durukan (2002)
+173 IPOs, ISE, 1990–1997
+First-day returns
+Mean underpricing 14.16%
+Durukan & Onder (2006)
+ISE IPOs
+OLS regression
+Weak ownership–underpricing link
+Durukan et al. (2017)
+BIST, 2006–2015
+State-space + LSV
+Herding exists; less by foreigners in crises
+Cimen & Ergun (2019)
+BIST IPOs
+CSSD
+No herding detected
+Mandaci & Cagli (2022)
+Crypto markets
+Patterson-Sharma
+Herding intensity and volatility
+Ilbasmi (2023)
+BIST IPOs, COVID
+Multi-day CAR
+Acknowledged price-limit problem
+Zhang (2024)
+Simulation
+Monte Carlo
+CSAD test power avg. 59.37%
+De Bondt & Thaler (1985)
+NYSE
+Portfolio formation
+Overreaction: past losers outperform
+Ritter (1991)
+1,526 IPOs, NYSE
+BHR
+Long-run IPO underperformance
+Kiymaz (2000)
+163 IPOs, ISE, 1990–1996
+First-day returns + aftermarket
+13.1% underpricing
+Ljungqvist (2007)
+Survey
+Literature review
+Four theories of underpricing
+This study
+209 IPOs, BIST, 2020–2025
+Consecutive limit-up + CSAD + Event study + OLS
+67.8% underpricing, no herding, –3.8% CAR
+Note: ISE = Istanbul Stock Exchange (now Borsa Istanbul). CSSD = Cross-Sectional Standard Deviation. CSAD = Cross-Sectional Absolute Deviation.
+
+# 3. Data and Methodology
+
+## 3.1 Data Sources and Sample
+Our dataset consists of 209 IPOs on Borsa Istanbul between February 2020 and December 2025. We collect IPO data from three independent sources to ensure accuracy: (i) halkarz.com, which provides offer prices, dates, and oversubscription ratios; (ii) KAP (Kamuyu Aydinlatma Platformu, the Public Disclosure Platform), which provides official company announcements; and (iii) SPK bulletins, which provide regulatory confirmations. Daily closing prices are obtained from Yahoo Finance. All prices are adjusted for stock splits and other corporate actions using Yahoo Finance’s adjusted close series.
+Table 2 reports the distribution of IPOs by year. The number of IPOs increased dramatically from 8 in 2020 to a peak of 56 in 2023, driven by retail investor enthusiasm, favourable market conditions, and the Turkish economy’s inflationary environment which pushed investors toward equities as an inflation hedge.
+Table 2. IPO Distribution by Year
+Year
+N IPOs
+Mean Underpricing (%)
+Median Underpricing (%)
+Avg Limit-Up Days
+2020
+8
+105.2
+114.4
+7.1
+2021
+53
+41.5
+20.9
+2.7
+2022
+39
+54.7
+32.9
+3.7
+2023
+56
+104.2
+76.8
+6.6
+2024
+33
+61.6
+33.1
+4.2
+2025
+20
+51.8
+20.7
+3.2
+Total
+209
+67.8
+33.1
+4.4
+Note: Underpricing is measured using the consecutive limit-up methodology (cumulative return from IPO-day close to first free-trading day close). Limit-up days = number of consecutive trading days closing at the +10% daily upper price limit.
+Of the 209 IPOs, 204 have sufficient Yahoo Finance price data for computing underpricing and short-term returns; 198 have at least 365 calendar days of post-IPO trading data; and 112 have complete financial statement data (P/E, P/B, market capitalisation) required for cross-sectional regressions. For the CSAD herding analysis, we use daily returns for all BIST-listed equities from January 2020 to December 2025, comprising 1,496 trading days. For the event study on manipulation penalties, we collect 47 verified SPK penalty announcements from SPK weekly bulletins over the 2020–2025 period, involving 217 individuals and total fines of approximately 1.13 billion TL.
+
+## 3.2 Consecutive Limit-Up Methodology
+BIST imposes a ±10% daily price limit on equity prices. When a newly listed IPO stock hits the upper price limit on its first trading day, the observed first-day return is mechanically capped at approximately 10%, regardless of the true equilibrium price. For 67% of our sample IPOs, the stock hits the upper limit on day one and continues to do so for multiple consecutive days—a phenomenon known in Turkish market parlance as tavan serisi (literally ‘ceiling series’). Following the methodology described by Loughran et al. (1994) for markets with binding daily price limits, we refer to this pattern as consecutive daily limit-up hits and define the limit-up streak length as the number of consecutive trading days on which the stock closes at the upper price limit. Measuring underpricing using only the first-day return would severely understate the actual return accruing to IPO investors.
+We define the consecutive limit-up return as:
+Underpricing_i = (P_free,i / P_close,i) − 1
+where P_free,i is the first unconstrained closing price—the closing price on the first day that stock i does not hit the daily price limit (Loughran, Ritter, and Rydqvist, 1994)—and P_close,i is the Yahoo Finance split-adjusted closing price on the IPO date. We use the IPO-day adjusted close (rather than the nominal offer price) as the denominator because Yahoo Finance applies split adjustments retroactively, making the adjusted close the appropriate base for computing returns consistent with subsequent price data. This choice ensures internal consistency: using the nominal offer price as the denominator while using split-adjusted numerators would produce distorted returns for any stock that subsequently split. For IPOs that do not hit the upper price limit on their first trading day (33% of the sample), the limit-up return is zero by construction, since P_free equals P_close.
+Multi-period buy-and-hold returns are computed as:
+Return_d,i = (P_d,i / P_close,i) − 1
+where P_d,i is the adjusted closing price d calendar days after the IPO. Buy-and-hold abnormal returns (BHARs) are computed by subtracting the BIST-100 index return over the same period.
+
+## 3.3 CSAD Herding Methodology
+Following Chang et al. (2000), we estimate the cross-sectional absolute deviation (CSAD) of individual stock returns from the equally-weighted market return as:
+CSAD_t = (1/N) Σ|R_i,t − R_m,t|
+We then regress CSAD on the absolute market return and its square:
+CSAD_t = α + γ1|R_m,t| + γ2 R_m,t² + ε_t
+Under rational expectations, both γ1 and γ2 should be positive (or at least non-negative), reflecting that return dispersion increases with market stress. A significantly negative γ2 indicates herding: during extreme market movements, investors suppress heterogeneous beliefs and follow the crowd, causing individual returns to cluster around the market return. Standard errors are computed using the Newey-West (1987) heteroskedasticity and autocorrelation consistent (HAC) estimator with automatic lag selection. We additionally estimate the model separately for bull-market and bear-market days to test for asymmetric herding, and we compute 60-day rolling window estimates to examine time variation.
+
+## 3.4 Event Study Methodology
+Following MacKinlay (1997), we estimate the market model for each stock subject to an SPK penalty:
+R_i,t = α_i + β_i R_m,t + ε_i,t
+The estimation window spans [−250, −31] trading days relative to the SPK penalty announcement date (day 0). Abnormal returns in the event window [−30, +30] are:
+AR_i,t = R_i,t − (α̂_i + β̂_i R_m,t)
+Cumulative abnormal returns (CARs) are summed across the event window, and the cross-sectional average (CAAR) is tested for significance using the Boehmer et al. (1991) standardised cross-sectional test, where each CAR_i is standardised by its individual standard deviation σ_i from the estimation window. We additionally conduct a non-parametric sign test.
+
+## 3.5 Summary Statistics
+Table 3. Descriptive Statistics of Key Variables
+Variable
+N
+Mean
+Median
+Std. Dev.
+Min
+Max
+Underpricing (consecutive limit-up)
+204
+0.678
+0.331
+0.895
+0.000
+6.300
+First-day return
+204
+0.066
+0.100
+0.052
+−0.200
+0.100
+Limit-up streak (days)
+209
+4.41
+3.0
+4.67
+0
+21
+Return d30
+204
+0.510
+0.249
+0.917
+−0.783
+8.500
+Return d365
+198
+1.645
+0.748
+2.358
+−0.920
+18.200
+BHAR d365
+198
+0.638
+0.074
+2.142
+−1.200
+17.500
+CSAD (daily)
+1,496
+0.0155
+0.0141
+0.0058
+0.0028
+0.0855
+SPK fine (million TL)
+47
+23.99
+6.80
+89.12
+1.85
+615.00
+Note: Underpricing, returns, and BHARs are expressed as decimals (0.678 = 67.8%). CSAD is computed from daily cross-sectional return dispersion.
+
+# 4. Results and Discussion
+
+## 4.1 IPO Underpricing
+Table 2 reports underpricing by year. Across the full sample, mean underpricing (measured using the consecutive limit-up methodology) is 67.8% (t = 10.82, p < 0.001) and median underpricing is 33.1%. The Wilcoxon signed-rank test confirms the result non-parametrically (p < 0.001). The distribution is highly right-skewed: while the median is 33.1%, the mean is pulled upward by a small number of IPOs with extremely long limit-up streaks (up to 21 consecutive days, corresponding to underpricing of 630%). Such extreme values are not data errors but a direct consequence of the daily price limit mechanism in markets where demand significantly exceeds supply for extended periods.
+These figures are substantially higher than those reported in prior Turkish IPO studies. Durukan (2002) reports mean underpricing of 14.16% for the 1990–1997 period using single-day returns, while Kiymaz (2000) reports 13.1% for 1990–1996. The difference is not simply a matter of methodology: the 2020–2025 period features significantly more retail investor participation, higher inflation driving equity demand, and a generally bull market for BIST. Our 67.8% mean underpricing is economically large, suggesting substantial wealth transfer from issuers to initial investors.
+To test whether underpricing is driven by fundamental valuation, we examine the relationship between P/E (price-to-earnings) ratios and underpricing. For the 113 IPOs with valid P/E data, the median P/E is 18.4 and the mean is 57.8 (40.3 excluding one extreme outlier above 500). The Spearman rank correlation between P/E and underpricing is 0.126 (p = 0.183), which is not statistically significant. This suggests that underpricing is a behavioural phenomenon—driven by investor enthusiasm and the limit-up mechanism—rather than a rational response to fundamental undervaluation.
+The sequential price discovery interpretation provides an additional lens for understanding these results. Because the ±10% daily price limit prevents immediate price adjustment, the true equilibrium price emerges only after several trading sessions. The average limit-up streak of 4.4 days (Table 2) suggests that price discovery typically requires nearly a full trading week to complete. If price limits delay the adjustment process, then the 67.8% mean underpricing partly reflects the regulatory constraint imposed by daily price limits rather than purely initial mispricing by issuers. This interpretation is consistent with Wang et al. (2018), who find that price limits distort IPO price discovery in the Chinese market.
+
+## 4.2 Contrarian Strategy: Post-Limit-Up Returns
+Table 4 reports post-limit-up returns for the 137 IPOs that experienced at least one consecutive limit-up day. We measure returns from the first free-trading day (the day after the limit-up streak ends) to examine whether the initial price surge reverses, consistent with the overreaction hypothesis of De Bondt and Thaler (1985).
+Table 4. Post-Limit-Up Contrarian Strategy Returns
+Horizon
+N
+Mean Return (%)
+Median Return (%)
+t-statistic
+p-value
+% Positive
+Signal
+5 days
+137
+−3.3
+−6.3
+−2.335
+0.021**
+32.8%
+SELL
+10 days
+137
+−3.4
+−9.3
+−1.606
+0.111
+30.7%
+SELL
+30 days
+137
++4.8
+−10.1
+1.092
+0.277
+37.2%
+HOLD
+60 days
+137
++16.6
+−3.4
+2.386
+0.018**
+43.1%
+HOLD
+90 days
+136
++21.7
+−4.2
+2.783
+0.006***
+46.3%
+HOLD
+180 days
+131
++46.0
++1.1
+4.056
+0.000***
+51.9%
+HOLD
+365 days
+131
++72.6
++26.2
+5.022
+0.000***
+61.8%
+HOLD
+Note: Returns measured from first free-trading day after the limit-up streak ends. ***, **, * denote significance at 1%, 5%, and 10% levels, respectively.
+The results reveal a clear pattern consistent with the overreaction hypothesis. Short-term mean reversion is statistically significant at the 5-day horizon (−3.3%, p = 0.021), with only 32.8% of stocks posting positive returns. This is consistent with the hypothesis that the consecutive limit-up mechanism artificially inflates prices above equilibrium, creating an overreaction that corrects once free trading resumes. A contrarian sell strategy at the end of the limit-up streak would have been profitable in the short term.
+This short-term reversal is also consistent with the sequential price discovery mechanism: once the price limit ceases to bind and the stock can trade freely, the market corrects for any overshoot that accumulated during the constrained adjustment process. The negative 5-day return suggests that the final limit-up sessions may push prices slightly above equilibrium before the correction occurs.
+However, long-term returns are strongly positive, consistent with Ritter’s (1991) observation that IPO aftermarket performance depends critically on the holding period. By 365 days, the mean return is +72.6% (p < 0.001) with 61.8% of IPOs in positive territory. This presents a nuanced picture: while there is genuine short-term overpricing at the end of the limit-up streak, the broader bull market and inflationary environment of 2020–2025 lifted most stocks over longer horizons. Importantly, the median returns remain negative until 180 days, indicating that the mean is driven by a subset of high-performing IPOs, while the typical stock underperforms in the medium term.
+
+## 4.3 SPK Manipulation Penalties: Event Study Results
+We analyse 47 SPK manipulation penalty cases involving unique stocks during the 2020–2025 period. Two stocks (ARMDA and KONKA) were excluded from the price analysis due to delisting, yielding 45 stocks with available price data for the event study. Table 5 presents the event study results.
+Table 5. Event Study Results: SPK Manipulation Penalties
+Metric
+Value
+Stocks analysed
+45
+Mean CAR [−30, +30]
+−3.8%
+Significantly negative CARs (5% level)
+37 / 45 (82.2%)
+Negative CARs
+29 / 45 (64.4%)
+CAAR at Day 0
+−2.2%
+CAAR at Day +30
+−3.8%
+Pre-event CAAR [−30, −1]
+−2.9%
+Post-event CAAR [+1, +30]
+−1.6%
+Note: CAR = Cumulative Abnormal Return. CAAR = Cumulative Average Abnormal Return. Event window: [−30, +30] trading days around SPK penalty announcement date.
+The CAAR pattern reveals that manipulated stocks experience significant negative abnormal returns around SPK penalty announcements. The pre-event CAAR of −2.9% suggests that the market anticipates enforcement action (or that the manipulation’s unwinding begins before the formal announcement). The post-event CAAR continues to decline, reaching −3.8% by day +30, indicating that the penalty announcement carries additional negative information.
+SPK penalties are imposed on individuals involved in manipulation schemes rather than the listed firms themselves; the event study therefore captures the market reaction to regulatory enforcement announcements related to specific stocks. Transaction-based manipulation (islem bazli) accounts for 37 of 47 cases (78.7%), reflecting SPK’s focus on coordinated trading schemes. Information-based manipulation (bilgi bazli, insider trading) accounts for 9 cases (19.1%). The average investigation period is 307 days, and 77% of cases result in trading bans. The largest single penalty in our sample is 615 million TL (Besiktas Futbol Yatirimlari, BJKAS, 2023), where the stock price was reportedly inflated from approximately 4 TL to 90 TL through coordinated transactions.
+
+## 4.4 CSAD Herding Analysis
+Table 6 reports the CSAD regression results.
+Table 6. CSAD Herding Regression Results (CCK 2000)
+Parameter
+Estimate
+Newey-West SE
+t-statistic
+p-value
+α (intercept)
+0.0139
+0.0005
+27.45
+<0.001
+γ1 (|R_m|)
+0.1064
+0.0658
+1.617
+0.106
+γ2 (R_m²)
+0.6450
+1.4931
+0.432
+0.666
+R²
+0.096
+N (trading days)
+1,496
+Note: Dependent variable is CSAD. Standard errors computed using Newey-West HAC estimator. Herding requires γ2 < 0 (significantly negative).
+The key parameter γ2 is positive (0.645) and statistically insignificant (p = 0.666), indicating no statistically significant evidence of herding at the aggregate market level during the 2020–2025 period. The positive coefficient suggests that, contrary to the herding hypothesis, return dispersion increases more than proportionally during extreme market movements, consistent with rational heterogeneous expectations.
+We further examine bull versus bear market asymmetry. In bull markets (positive market return days, N = 847), γ2 = 4.01, and in bear markets (negative market return days, N = 647), γ2 = −0.78. Neither coefficient is statistically significant. The slightly negative bear-market γ2 hints at possible herding during downturns, but the evidence is not strong enough to reject the null hypothesis.
+This null result should be interpreted with the caveat from Zhang (2024), who demonstrates through Monte Carlo simulation that the power of the CSAD-based t-test averages only 59.37% and can drop to 37.62%. In other words, even if herding exists at moderate intensity, the CSAD test may fail to detect it approximately 40% of the time. Our finding of no statistically detectable herding is therefore consistent with either the genuine absence of herding or insufficient statistical power to detect it.
+
+## 4.5 Cross-Sectional Determinants of Underpricing
+We estimate cross-sectional OLS regressions with HC3 robust standard errors, following the determinants framework of Durukan (2002), Kiymaz (2000), and Ljungqvist (2007). Model 1 (Basic, N = 204) includes log offer price, year dummies, and a hot-market dummy. Model 2 (N = 112) adds log market capitalisation, P/E, and P/B ratios. Model 4 uses ln(1 + underpricing) as a log-level robustness check.
+The key finding is that price-to-book ratio is the only significant determinant of underpricing. In Model 4, the P/B coefficient is 0.017 (p = 0.040), indicating that higher-valued firms experience greater underpricing—consistent with the behavioural interpretation that overvalued firms attract more speculative demand. P/E ratio is not significant in any specification (p > 0.50). Log market capitalisation shows a marginally significant negative coefficient (p = 0.072), consistent with Rock's (1986) asymmetric information hypothesis.
+Table 7. Cross-Sectional OLS Regression: Determinants of IPO Underpricing
+Variable
+Model 1 (Basic)
+Model 2 (Fund.)
+Model 4 (Log-level)
+Constant
+1.251*** (0.260)
+4.069** (1.957)
+2.007** (0.900)
+ln(Offer Price)
+−0.113 (0.082)
+−0.086 (0.067)
+−0.055 (0.037)
+ln(Market Cap)
+—
+−0.148 (0.089)
+−0.067 (0.040)
+P/E Ratio
+—
+0.001 (0.003)
+0.000 (0.001)
+P/B Ratio
+—
+0.035 (0.023)
+0.017** (0.008)
+Hot Market
+−0.110 (0.155)
+0.164 (0.174)
+0.063 (0.084)
+Year Dummies
+Included
+Included
+Included
+N
+204
+112
+112
+R-squared
+0.097
+0.193
+0.214
+Adj. R-squared
+0.065
+0.113
+0.137
+F-statistic (p)
+4.66 (<0.001)
+1.54 (0.137)
+2.68 (0.006)
+Note: HC3 robust standard errors in parentheses. ***, **, * denote significance at 1%, 5%, and 10% levels. Dependent variable: underpricing (Models 1–2) or ln(1 + underpricing) (Model 4).
+The low R-squared values (9.7–21.4%) indicate that observable firm characteristics explain a modest fraction of underpricing variation. This finding is consistent with the behavioural view articulated by Ljungqvist (2007): in markets with high retail participation and constrained price discovery (due to daily limits), investor sentiment and speculative demand—rather than fundamentals—drive the bulk of underpricing. The insignificance of P/E and the significance of P/B suggest that investors focus on balance sheet multiples rather than earnings when evaluating newly listed firms, possibly because trailing earnings are less informative for young growth companies.
+
+## 4.6 Inflation and Real Returns
+Turkey’s extreme inflationary environment during 2020–2025 substantially affects the interpretation of IPO returns. Cumulative consumer price inflation exceeded 500% over this period (TUFE index rising from approximately 500 to 3,055, base 2003 = 100; data from the Turkish Statistical Institute, TURKSTAT), with year-over-year inflation peaking at 85.5% in October 2022. The BIST-100 index rose approximately 688% in nominal terms, but only approximately 40% in CPI-adjusted real terms.
+For IPO investors, the inflation adjustment is meaningful. Using the Fisher equation (Real Return = (1 + Nominal Return) / (1 + Inflation) − 1), the median 365-day nominal IPO return of 74.8% translates to a substantially lower real return once period-specific inflation is applied. An investor who earned 100% nominal return over 12 months in 2022 (when inflation averaged approximately 70% year-over-year) would have earned only approximately 18% in real terms. This highlights the importance of distinguishing between nominal and real wealth creation in high-inflation emerging markets.
+
+# 5. Conclusions and Policy Implications
+This thesis examined IPO underpricing in Borsa Istanbul during the 2020–2025 boom—a period in which 209 companies went public amid extreme inflation, heightened retail participation, and widespread market manipulation. The central finding is that conventional first-day return measures understate true IPO underpricing by a factor of ten: the consecutive limit-up (tavan serisi) methodology reveals mean underpricing of 67.8%, compared with 6.6% using naive single-day returns. This methodological contribution is the primary original value of this study and has direct implications for how IPO performance is measured in any market with binding daily price limits.
+Three complementary analyses clarify the nature and consequences of this underpricing. First, cross-sectional regressions show that observable firm fundamentals explain only 10–21% of underpricing variation. The price-to-book ratio is the sole significant determinant (p = 0.040), while P/E ratio and market capitalisation are not. This suggests that underpricing in BIST is primarily a behavioural phenomenon—driven by speculative demand and the mechanical amplification of the limit-up mechanism—rather than a rational response to firm characteristics, consistent with the behavioural framework of Ljungqvist (2007).
+Second, CSAD analysis finds no statistically significant evidence of aggregate investor herding (γ2 = 0.645, p = 0.666). However, this null result must be interpreted cautiously given the limited statistical power of the CSAD test (Zhang, 2024: average 59.37%). The absence of detectable herding at the market level does not preclude herding at the individual IPO level, which remains a question for future research using alternative methodologies such as the Patterson-Sharma runs test (Mandaci and Cagli, 2022) or the LSV measure (Durukan et al., 2017).
+Third, the post-limit-up contrarian analysis reveals statistically significant short-term mean reversion (−3.3% at 5 days, p = 0.021), consistent with De Bondt and Thaler's (1985) overreaction hypothesis. Investors who purchase at the end of the tavan serisi face immediate losses as prices correct toward fundamental value. While long-term nominal returns appear attractive (+72.6% at 365 days), Turkey's extreme inflation erodes these gains substantially—the median real 365-day return falls to approximately half its nominal value. This inflation illusion represents the ultimate cost of following the crowd: investors who chase IPO fever may believe they are profiting while actually losing purchasing power.
+Taken together, these findings support the interpretation that daily price limits transform IPO price discovery into a sequential process. Rather than reaching equilibrium on the first trading day, IPO prices in BIST converge gradually through consecutive limit-up sessions. The average 4.4-day limit-up streak, the 67.8% cumulative underpricing, and the subsequent short-term reversal (−3.3% at 5 days) are all consistent with a process in which binding price limits delay the incorporation of investor demand into prices. This sequential price discovery interpretation contributes to the growing literature on how regulatory constraints shape IPO markets (Wang et al., 2018; Loughran et al., 1994) and suggests that underpricing measures in price-limit markets should account for this multi-day adjustment process.
+The policy implications are twofold. For regulators, the ±10% daily price limit—intended to reduce volatility—paradoxically amplifies underpricing by preventing newly listed stocks from reaching equilibrium, creating artificial scarcity that extends the tavan serisi and inflates returns. For investors, the contrarian evidence suggests a clear strategy: avoid purchasing at the end of the limit-up streak, and always evaluate IPO returns in real (inflation-adjusted) terms.
+Several limitations warrant acknowledgement. The tavan serisi methodology assumes that the first free-trading day reflects equilibrium, which may not hold if speculative momentum persists. The CSAD analysis captures market-wide rather than IPO-specific herding. The regression sample (N = 112 with fundamentals) and event study sample (47 SPK cases) limit statistical power. Future research could extend the consecutive limit-up methodology to other price-limit markets such as China and Korea, develop more powerful herding tests, and examine the role of social media and online trading platforms in amplifying IPO demand during emerging market booms.
+
+# References
+Benveniste, L.M. and Spindt, P.A. (1989) ‘How investment bankers determine the offer price and allocation of new issues’, Journal of Financial Economics, 24(2), pp. 343–361.
+Bildik, R. and Yilmaz, M.K. (2008) ‘The market performance of initial public offerings in the Istanbul Stock Exchange’, Journal of Business Economics and Management, 9(1), pp. 3–18.
+Boehmer, E., Musumeci, J. and Poulsen, A.B. (1991) ‘Event-study methodology under conditions of event-induced variance’, Journal of Financial Economics, 30(2), pp. 253–272.
+Cagli, E.C., Ergun, Z.C. and Durukan, M.B. (2020) ‘The causal linkages between investor sentiment and excess returns on Borsa Istanbul’, Borsa Istanbul Review, 20(3), pp. 214–223.
+Chang, E.C., Cheng, J.W. and Khorana, A. (2000) ‘An examination of herd behavior in equity markets: An international perspective’, Journal of Banking & Finance, 24(10), pp. 1651–1679.
+Cimen, A. and Ergun, Z.C. (2019) ‘Empirical analysis of herd behavior in the Turkish IPO market’, Izmir Journal of Economics, 34(1), pp. 67–75.
+De Bondt, W.F.M. and Thaler, R. (1985) ‘Does the stock market overreact?’, Journal of Finance, 40(3), pp. 793–805.
+Durukan, M.B. (2002) ‘The relationship between IPO returns and factors influencing IPO performance: Case of Istanbul Stock Exchange’, Managerial Finance, 28(2), pp. 18–38.
+Durukan, M.B. and Onder, Z. (2006) ‘IPO underpricing and ownership structure: Evidence from the Istanbul Stock Exchange’, in Initial Public Offerings: An International Perspective. Amsterdam: Elsevier, pp. 263–278.
+Durukan, M.B., Ozsu, H.H. and Ergun, Z.C. (2017) ‘Financial crisis and herd behavior: Evidence from the Borsa Istanbul’, in Economou, F. et al. (eds.) Handbook of Investors’ Behavior During Financial Crises. Cambridge: Academic Press, pp. 203–217.
+Ergun, Z.C., Cagli, E.C. and Durukan, M.B. (2023) ‘The interconnectedness across risk appetite of distinct investor types in Borsa Istanbul’, Studies in Economics and Finance, 40(3), pp. 425–444.
+Ilbasmi, S. (2023) ‘IPO underpricing during the COVID-19 pandemic: Evidence from Borsa Istanbul’, Borsa Istanbul Review, 23(4), pp. 835–847.
+Kiymaz, H. (2000) ‘The initial and aftermarket performance of IPOs in an emerging market: Evidence from Istanbul Stock Exchange’, Journal of Multinational Financial Management, 10(2), pp. 213–227.
+Ljungqvist, A. (2007) ‘IPO underpricing’, in Eckbo, B.E. (ed.) Handbook of Empirical Corporate Finance. Amsterdam: Elsevier, vol. 1, pp. 375–422.
+Loughran, T. and Ritter, J.R. (1995) ‘The new issues puzzle’, Journal of Finance, 50(1), pp. 23–51.
+Loughran, T., Ritter, J.R. and Rydqvist, K. (1994) ‘Initial public offerings: International insights’, Pacific-Basin Finance Journal, 2(2–3), pp. 165–199.
+MacKinlay, A.C. (1997) ‘Event studies in economics and finance’, Journal of Economic Literature, 35(1), pp. 13–39.
+Mandaci, P.E. and Cagli, E.C. (2022) ‘Herding intensity and volatility in cryptocurrency markets during the COVID-19’, Finance Research Letters, 46(PB), 102382.
+Newey, W.K. and West, K.D. (1987) ‘A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix’, Econometrica, 55(3), pp. 703–708.
+Ritter, J.R. (1991) ‘The long-run performance of initial public offerings’, Journal of Finance, 46(1), pp. 3–27.
+Rock, K. (1986) ‘Why new issues are underpriced’, Journal of Financial Economics, 15(1–2), pp. 187–212.
+Tanyeri, B., Ozturkkal, B. and Tirtiroglu, D. (2021) ‘Turkish IPO market: 1990–2020’, Borsa Istanbul Review, 21(S1), pp. S27–S33.
+Wang, Q., Zhao, Z., He, J. and Feng, W. (2018) ‘Price performance following stock’s IPO in different price limit systems’, Physica A: Statistical Mechanics and its Applications, 490, pp. 953–966.
+Zhang, Y. (2024) ‘On the power of the CSAD-based test on herding behavior’, Applied Finance Letters, 13, pp. 45–52.

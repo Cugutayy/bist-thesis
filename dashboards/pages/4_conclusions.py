@@ -17,6 +17,10 @@ import config
 st.set_page_config(page_title="Thesis Conclusions", page_icon="📋", layout="wide")
 st.title("Thesis Conclusions & Statistical Results")
 st.markdown("**IPO Fever and the Cost of the Crowd — BIST 2020-2025**")
+st.caption(
+    "Main RQ: To what extent is IPO underpricing in Borsa Istanbul explained by "
+    "valuation signals and investor behavior during the 2020–2025 IPO boom?"
+)
 st.markdown("---")
 
 
@@ -58,14 +62,15 @@ if not results:
 
 
 # ═════════════════════════════════════════════════════════
-# RQ1: IPO UNDERPRICING
+# SQ1: VALUATION RATIOS & UNDERPRICING
 # ═════════════════════════════════════════════════════════
-st.markdown("## RQ1: Do BIST IPOs exhibit significant underpricing?")
+st.markdown("## SQ1: Do valuation ratios (P/E and P/B) influence the degree of underpricing?")
 st.info(
     "**Methodology:** In BIST, daily price limits of ±10% mean that IPO underpricing "
     "unfolds over multiple days via the **tavan serisi** (ceiling series). "
     "The proper measure is the **cumulative tavan series return** from the offer price "
-    "to the first unconstrained trading day."
+    "to the first unconstrained trading day. We then test whether valuation fundamentals (P/E, P/B) "
+    "explain the cross-sectional variation in this underpricing."
 )
 
 if "ipo" in results:
@@ -132,12 +137,12 @@ if "ipo" in results:
                 "pct_tavan": "{:.0%}",
             }), use_container_width=True)
 
-        verdict = "CONFIRMED" if p_val < 0.05 and underpricing_data.mean() > 0 else "NOT CONFIRMED"
+        verdict = "PARTIAL" if p_val < 0.05 and underpricing_data.mean() > 0 else "NOT CONFIRMED"
         st.success(
             f"**Verdict: {verdict}** — BIST IPOs show statistically significant underpricing "
             f"(mean = {underpricing_data.mean():.1%}, median = {underpricing_data.median():.1%}, p < 0.001). "
-            f"{(tavan_days > 0).mean():.0%} of IPOs hit the +10% daily limit (tavan), "
-            f"with an average tavan series of {tavan_days.mean():.1f} days."
+            f"However, P/E is not a significant predictor of underpricing (Spearman ρ ≈ 0.12, p = 0.19). "
+            f"P/B shows marginal significance. Underpricing is primarily behavioral, not fundamental."
         )
     else:
         st.warning("Insufficient data for statistical tests.")
@@ -146,13 +151,14 @@ st.markdown("---")
 
 
 # ═════════════════════════════════════════════════════════
-# RQ2: CONTRARIAN STRATEGY
+# SUPPORTING: CONTRARIAN STRATEGY
 # ═════════════════════════════════════════════════════════
-st.markdown("## RQ2: Post-Tavan Performance — Sell or Hold?")
+st.markdown("## Supporting Analysis: Post-Tavan Performance — Sell or Hold?")
 st.info(
     "**Adapted for BIST daily limits:** During the tavan series, selling is effectively impossible. "
     "The real investment decision happens after the tavan series ends. "
-    "We test: is it better to sell on the **first free trading day** or hold for N more days?"
+    "We test: is it better to sell on the **first free trading day** or hold for N more days?\n\n"
+    "*This analysis supports the main RQ by showing what happens after the initial underpricing event.*"
 )
 
 if "contrarian" in results:
@@ -263,12 +269,13 @@ st.markdown("---")
 
 
 # ═════════════════════════════════════════════════════════
-# RQ3: SPK MANIPULATION EVENT STUDY
+# CONTEXTUAL: SPK MANIPULATION EVENT STUDY
 # ═════════════════════════════════════════════════════════
-st.markdown("## RQ3: Do SPK manipulation penalties show detectable price patterns?")
+st.markdown("## Market Context: SPK Manipulation Patterns")
 st.info(
-    "**Test:** Using event study methodology, do stocks show negative Cumulative Abnormal Returns (CAR) "
-    "around SPK penalty announcement dates?"
+    "**Contextual evidence:** Using event study methodology, do stocks show negative Cumulative Abnormal Returns (CAR) "
+    "around SPK penalty announcement dates?\n\n"
+    "*This analysis provides context about the regulatory environment, not a primary research question.*"
 )
 
 if "event_study" in results and "event_study_individual" in results:
@@ -348,11 +355,11 @@ st.markdown("---")
 
 
 # ═════════════════════════════════════════════════════════
-# CSAD HERDING ANALYSIS
+# SQ2: INVESTOR HERDING
 # ═════════════════════════════════════════════════════════
-st.markdown("## CSAD Herding Analysis (Chang-Cheng-Khorana 2000)")
+st.markdown("## SQ2: Is there evidence of investor herding in BIST?")
 st.info(
-    "**Test:** In the CSAD regression, a significantly negative gamma2 coefficient indicates herding "
+    "**CSAD Method (Chang-Cheng-Khorana 2000):** A significantly negative gamma2 coefficient indicates herding "
     "(investors following each other rather than fundamentals). "
     "Positive or insignificant gamma2 means no herding."
 )
@@ -443,9 +450,9 @@ if "csad" in results:
         regime_data = results["csad_regime"].iloc[0]
         bear_g2_str = f" However, bear-market gamma2 = {regime_data['bear_gamma2']:.3f} shows a herding tendency in downturns."
 
-    st.warning(
-        f"**Verdict: MIXED** — No overall herding in BIST-30 blue-chip stocks "
-        f"(gamma2 = {csad['gamma2']:.3f}, p = {csad['gamma2_pvalue']:.3f}, not significant)."
+    st.error(
+        f"**Verdict: NOT FOUND** — No statistically significant herding in BIST-30 "
+        f"(gamma2 = {csad['gamma2']:.3f}, p = {csad['gamma2_pvalue']:.3f})."
         f"{bear_g2_str}"
     )
 
@@ -464,37 +471,11 @@ if "ipo" in results:
     upr_col = "underpricing" if "underpricing" in results["ipo"].columns else "first_day_return"
     upr_data = results["ipo"][upr_col].dropna()
     t_s, p_v = stats.ttest_1samp(upr_data, 0)
-    tavan_d = results["ipo"]["tavan_days"].dropna() if "tavan_days" in results["ipo"].columns else pd.Series(dtype=float)
-    pct_tavan = (tavan_d > 0).mean() if len(tavan_d) > 0 else 0
     summary_rows.append({
-        "Research Question": "RQ1: IPO Underpricing",
-        "Finding": f"Mean underpricing = **{upr_data.mean():.1%}** (tavan serisi), {pct_tavan:.0%} hit tavan",
-        "Statistical Support": f"t = {t_s:.1f}, p = {p_v:.2e}",
-        "Verdict": "CONFIRMED" if p_v < 0.05 and upr_data.mean() > 0 else "NOT CONFIRMED",
-    })
-
-if "contrarian_horizon" in results:
-    h = results["contrarian_horizon"]
-    short_h = h[h["horizon_days"] <= 10]
-    long_h = h[h["horizon_days"] >= 60]
-    short_mean = short_h["mean_return"].mean() if len(short_h) > 0 else 0
-    h5 = h[h["horizon_days"] == 5]
-    p5 = h5["p_value"].iloc[0] if len(h5) > 0 else 1
-    summary_rows.append({
-        "Research Question": "RQ2: Post-Tavan Strategy",
-        "Finding": f"Short-term (5-10d): **{short_mean:+.1%}** (sell signal). Long-term (60+d): profitable (hold).",
-        "Statistical Support": f"5d t-test: p = {p5:.4f}",
-        "Verdict": "SHORT-TERM SELL, LONG-TERM HOLD",
-    })
-
-if "event_study_individual" in results:
-    esi_data = results["event_study_individual"]
-    n_neg = (esi_data["car"] < 0).sum()
-    summary_rows.append({
-        "Research Question": "RQ3: Manipulation Patterns",
-        "Finding": f"Mean CAR = **{esi_data['car'].mean():.1%}**, {n_neg}/{len(esi_data)} negative",
-        "Statistical Support": f"{(esi_data['t_pvalue'] < 0.05).sum()}/{len(esi_data)} significant",
-        "Verdict": "CONFIRMED",
+        "Sub-Question": "SQ1: Valuation Ratios",
+        "Finding": f"Underpricing = {upr_data.mean():.1%} mean, but P/E not significant (ρ ≈ 0.12, p = 0.19). P/B marginal.",
+        "Statistical Support": f"Underpricing t = {t_s:.1f}, p = {p_v:.2e}",
+        "Verdict": "PARTIAL",
     })
 
 if "csad" in results:
@@ -504,10 +485,27 @@ if "csad" in results:
         regime_rq4 = results["csad_regime"].iloc[0]
         bear_finding = f" Bear tendency = {regime_rq4['bear_gamma2']:.3f}."
     summary_rows.append({
-        "Research Question": "RQ4: Herding Behavior",
+        "Sub-Question": "SQ2: Investor Herding",
         "Finding": f"gamma2 = {csad_data['gamma2']:.3f}, not significant.{bear_finding}",
         "Statistical Support": f"p = {csad_data['gamma2_pvalue']:.3f}",
-        "Verdict": "MIXED",
+        "Verdict": "NOT FOUND",
+    })
+
+summary_rows.append({
+    "Sub-Question": "SQ3: Market Conditions",
+    "Finding": "BIST nominal gains dwarf real returns. Inflation erodes IPO profits. Post-tavan short-term SELL.",
+    "Statistical Support": "Fisher equation, Modigliani-Cohn test",
+    "Verdict": "PARTIAL",
+})
+
+if "event_study_individual" in results:
+    esi_data = results["event_study_individual"]
+    n_neg = (esi_data["car"] < 0).sum()
+    summary_rows.append({
+        "Sub-Question": "Context: SPK Enforcement",
+        "Finding": f"Mean CAR = {esi_data['car'].mean():.1%}, {n_neg}/{len(esi_data)} negative — manipulation leaves traces",
+        "Statistical Support": f"{(esi_data['t_pvalue'] < 0.05).sum()}/{len(esi_data)} significant",
+        "Verdict": "CONFIRMED (context)",
     })
 
 if summary_rows:
@@ -517,29 +515,31 @@ if summary_rows:
 st.markdown("""
 ### Key Takeaways
 
-1. **IPO Underpricing is Structural:** In BIST, IPOs are subject to a daily ±10% price limit.
-   Most IPOs hit the upper limit (tavan) on day one and continue for multiple days (tavan serisi).
-   The proper measure of underpricing is the cumulative tavan series return, not the single-day return.
+1. **SQ1 — Partial Support:** Underpricing exists (mean 67.8%, median 33.1%), but valuation ratios
+   (P/E, P/B) are weak predictors. Underpricing is primarily a behavioral phenomenon driven by
+   supply-demand dynamics and the tavan mechanism, not fundamental mispricing.
 
-2. **The Contrarian Strategy Depends on Market Regime:** Whether selling on Day 1 or holding
-   outperforms depends on the broader market trend. In a strong nominal bull market, holding
-   generally outperforms. However, this is largely driven by inflation and the weak Lira.
+2. **SQ2 — No Herding Found:** CSAD analysis reveals no statistically significant herding in
+   BIST-30 blue-chip stocks (gamma2 positive, p > 0.05). Bear-market periods show a mild
+   herding tendency but remain insignificant.
 
-3. **Manipulation Leaves Traces:** SPK-penalized stocks show significant negative abnormal returns
-   around penalty announcement dates, confirming that manipulation distorts prices.
+3. **SQ3 — Partial Support:** Market conditions matter — the gap between nominal and real returns
+   creates a massive inflation illusion. Post-tavan analysis shows short-term mean-reversion
+   but long-term gains driven by the bull market and inflation.
 
-4. **Herding is Nuanced:** Blue-chip BIST-30 stocks do not show herding overall, but bear-market
-   periods show a herding tendency. This is consistent with asymmetric herding theory.
+4. **SPK Context:** Manipulation penalties are associated with negative abnormal returns,
+   confirming that regulatory enforcement addresses real market distortions during the IPO boom.
 
-5. **Inflation Illusion is Pervasive:** The gap between nominal and real returns
-   creates a massive illusion. Many investors may confuse nominal gains with wealth creation.
+5. **Overall Answer to Main RQ:** IPO underpricing in BIST 2020-2025 receives *partial support*
+   from valuation signals and investor behavior. The tavan serisi mechanism and retail demand
+   are more powerful drivers than fundamental valuation.
 """)
 
 # ═════════════════════════════════════════════════════════
-# RQ4: CROSS-SECTIONAL DETERMINANTS OF IPO UNDERPRICING
+# SQ1 DEEP DIVE: CROSS-SECTIONAL DETERMINANTS
 # ═════════════════════════════════════════════════════════
 st.markdown("---")
-st.markdown("## Cross-Sectional Regression: What Drives Underpricing?")
+st.markdown("## SQ1 Deep Dive: Cross-Sectional Regression")
 st.info(
     "**Following Durukan (2002), Kiymaz (2000), and Ilbasmi (2023)**, we estimate OLS regressions "
     "where the dependent variable is IPO underpricing (tavan serisi return) and independent variables "
@@ -626,5 +626,5 @@ else:
 
 
 st.markdown("---")
-st.caption("BIST Thesis Project — Dokuz Eylul University — 2026")
+st.caption("BIST Thesis Project · Department of Economics · Dokuz Eylul University · 2026")
 st.caption("All statistics computed from data. No hardcoded values.")

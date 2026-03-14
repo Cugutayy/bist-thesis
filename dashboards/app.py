@@ -117,11 +117,13 @@ metrics = compute_real_metrics()
 with st.sidebar:
     st.markdown("## BIST Thesis")
     st.markdown("---")
-    st.markdown("### Thesis Dimensions")
+    st.markdown("### Research Structure")
     st.markdown("""
-    1. **IPO Frenzy** — Main analysis
-    2. **SPK Manipulation** — Enrichment
-    3. **Inflation Illusion** — Enrichment
+    **Main RQ:** IPO underpricing × valuation signals × investor behavior
+
+    **SQ1:** Valuation Ratios (P/E, P/B)
+    **SQ2:** Investor Herding (CSAD)
+    **SQ3:** Market Conditions & Inflation
     """)
     st.markdown("---")
     st.markdown("**Period:** 2020 — 2025")
@@ -129,7 +131,7 @@ with st.sidebar:
 
 # ─── Main Page ───────────────────────────────────────────
 st.markdown('<p class="main-header">IPO Fever and the Cost of the Crowd</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">BIST 2020-2025: Herding, Manipulation & Inflation Illusion</p>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">BIST 2020-2025: Valuation Signals, Investor Behavior & Market Conditions</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 # ─── Key Metrics Row (ALL from data, ZERO hardcoded) ────
@@ -161,45 +163,45 @@ st.caption(
 
 st.markdown("---")
 
-# ─── Three Dimensions Overview ──────────────────────────
+# ─── Analysis Overview ──────────────────────────────────
 dim1, dim2, dim3 = st.columns(3)
 
 with dim1:
-    st.markdown("### Dimension 1: IPO Frenzy")
+    st.markdown("### IPO Underpricing Analysis")
     st.markdown(f"""
+    *SQ1: Do valuation ratios explain underpricing?*
     - **{metrics.get('n_ipos', '?')} IPOs** in 5 years
     - **{metrics.get('avg_first_day', 0):.1%}** average first-day return
-    - **100%** had positive first-day returns
-    - Oversubscription-driven demand
-    - Multi-period return analysis
+    - Tavan serisi methodology
+    - P/E & P/B vs underpricing
     - Contrarian strategy test
     """)
     if st.button("Go to IPO Analysis →", key="btn_ipo"):
         st.switch_page("pages/1_ipo_analysis.py")
 
 with dim2:
-    st.markdown("### Dimension 2: SPK Manipulation")
+    st.markdown("### Market Environment")
     st.markdown("""
-    - Market manipulation penalties (2020-2025)
+    *Contextual evidence: SPK enforcement*
+    - 47 verified manipulation cases (2020-2025)
     - Event study around penalty announcements
     - Pre-manipulation price patterns (pump)
     - Post-announcement crash (dump)
-    - 48 stocks analyzed with event study
-    - CSAD herding analysis
+    - Case Explorer with BIST-100 comparison
     """)
-    if st.button("Go to Manipulation Analysis →", key="btn_manip"):
+    if st.button("Go to Market Environment →", key="btn_manip"):
         st.switch_page("pages/2_manipulation.py")
 
 with dim3:
-    st.markdown("### Dimension 3: Inflation Illusion")
+    st.markdown("### Market Conditions & Inflation")
     bist_nom = metrics.get('bist_nominal_pct')
     bist_real = metrics.get('bist_real_pct')
     st.markdown(f"""
+    *SQ3: Do market conditions affect underpricing?*
     - BIST {f'+{bist_nom:.0%}' if bist_nom else '?'} nominal → **{f'+{bist_real:.0%}' if bist_real else '?'} real**
     - CPI increased {f'+{metrics.get("cpi_pct", 0):.0%}'}
-    - USD/TRY: {metrics.get('usdtry_first', '?'):.1f} → {metrics.get('usdtry_last', '?'):.1f}
-    - IPO returns: nominal vs real vs USD
-    - Money illusion hypothesis test
+    - Nominal vs real IPO returns
+    - Money illusion analysis
     """)
     if st.button("Go to Inflation Analysis →", key="btn_inflation"):
         st.switch_page("pages/3_inflation.py")
@@ -214,22 +216,24 @@ st.markdown("---")
 # ─── Research Questions ─────────────────────────────────
 st.markdown("### Research Questions")
 st.markdown("""
-1. **Do BIST IPOs exhibit significant first-day underpricing, and does oversubscription predict short-term overreaction?**
-2. **Is a contrarian strategy ("sell on day 1") profitable, or does holding outperform in a bull market?**
-3. **Do stocks subject to SPK manipulation penalties show detectable price patterns (pump-and-dump)?**
-4. **Does inflation illusion distort investor perception of IPO returns in high-inflation Turkey?**
+**Main RQ:** *To what extent is IPO underpricing in Borsa Istanbul explained by valuation signals
+and investor behavior during the 2020–2025 IPO boom?*
+
+- **SQ1:** Do valuation ratios (P/E and P/B) influence the degree of IPO underpricing?
+- **SQ2:** Is there evidence of investor herding in BIST during the IPO boom period?
+- **SQ3:** How do market-level conditions (BIST performance, inflation, CPI) relate to IPO underpricing dynamics?
 """)
 
 # ─── Methodology Summary ────────────────────────────────
 with st.expander("Methodology Overview"):
     st.markdown("""
-    | Method | Application | Key Metric |
+    | Method | Sub-Question | Key Metric |
     |--------|-------------|------------|
-    | **Event Study (CAR)** | IPO first-day, SPK penalty dates | Cumulative Abnormal Return |
-    | **CSAD Regression** | Market-wide herding detection | gamma2 coefficient (negative = herding) |
-    | **Contrarian Backtest** | Sell-day-1 strategy vs hold | Win rate, excess return |
-    | **Fisher Equation** | Nominal → Real returns | Real IPO returns vs nominal |
-    | **Money Illusion Test** | Inflation vs IPO demand | Modigliani-Cohn regression |
+    | **Cross-Sectional OLS** | SQ1 — Valuation Ratios | P/E, P/B coefficients vs underpricing |
+    | **CSAD Regression** | SQ2 — Investor Herding | gamma2 coefficient (negative = herding) |
+    | **Fisher Equation** | SQ3 — Inflation Effects | Real IPO returns vs nominal |
+    | **Event Study (CAR)** | Context — SPK Enforcement | Cumulative Abnormal Return |
+    | **Contrarian Backtest** | Supporting — Post-tavan strategy | Win rate, excess return |
     """)
 
 # ─── Data Status ─────────────────────────────────────────
@@ -252,4 +256,4 @@ with st.expander("Data Status"):
         st.markdown(f"- Contrarian: {'✅' if contrarian_file.exists() else '⏳ Run analysis'}")
 
 st.markdown("---")
-st.caption("BIST Thesis Project — Dokuz Eylul University — 2025")
+st.caption("BIST Thesis Project · Department of Economics · Dokuz Eylul University · 2026")

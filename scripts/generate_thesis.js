@@ -207,12 +207,12 @@ async function buildThesis() {
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { after: 200 },
-            children: [new TextRun({ text: "FACULTY OF BUSINESS", size: 24, font: "Times New Roman" })],
+            children: [new TextRun({ text: "FACULTY OF ECONOMICS AND ADMINISTRATIVE SCIENCES", size: 24, font: "Times New Roman" })],
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { after: 200 },
-            children: [new TextRun({ text: "Department of Accounting and Finance", size: 24, font: "Times New Roman" })],
+            children: [new TextRun({ text: "Department of Economics", size: 24, font: "Times New Roman" })],
           }),
           emptyLine(), emptyLine(), emptyLine(),
           new Paragraph({
@@ -256,7 +256,7 @@ async function buildThesis() {
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { after: 100 },
-            children: [new TextRun({ text: "Izmir, 2026", size: 24, font: "Times New Roman" })],
+            children: [new TextRun({ text: "2026", size: 24, font: "Times New Roman" })],
           }),
         ],
       },
